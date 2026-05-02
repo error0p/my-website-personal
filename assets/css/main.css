@@ -616,7 +616,13 @@ ul, ol {
 
 /* Real project gradients */
 .card__img--arujiva     { background: linear-gradient(145deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%); }
-.card__img--skyverrra   { background-image: url('../img/skyverrra.jpg'); background-size: cover; background-position: center; }
+.card__img--skyverrra   {
+  background-image: url('../img/skyverrra.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #05061a;
+}
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
 .card__img--healthday   { background: linear-gradient(145deg, #051a3d 0%, #0a3374 45%, #0c6e6e 80%, #063535 100%); }
