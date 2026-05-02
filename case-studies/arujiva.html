@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arujiva — Brand Identity System · Satyam Pariyar</title>
+  <meta name="description" content="Building a complete brand identity system for Arujiva — logo, color, typography, and brand guidelines from the ground up.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <style>
+    /* Arujiva hero — teal brand gradient */
+    .cs-hero__img-inner.cs-img--arujiva {
+      background: linear-gradient(155deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-hero__img-inner.cs-img--arujiva::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 35% 55%, rgba(20, 174, 199, 0.22) 0%, transparent 50%),
+        radial-gradient(ellipse at 78% 30%, rgba(20, 174, 199, 0.10) 0%, transparent 45%);
+    }
+
+    /* Simulated logo lockup inside hero */
+    .cs-hero__brand-display {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .brand-mark {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background: #14AEC7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark__inner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(255,255,255,0.9);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .brand-mark__inner::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 3px;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-wordmark__name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #F0EFEC;
+      text-transform: uppercase;
+    }
+
+    .brand-wordmark__tagline {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(240,239,236,0.5);
+      text-transform: uppercase;
+    }
+
+    .brand-color-strip {
+      display: flex;
+      gap: 8px;
+    }
+
+    .brand-swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    /* Brand exploration grid */
+    .brand-exploration {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 32px;
+      background: #0a1a1e;
+      aspect-ratio: 16 / 7;
+    }
+
+    .explore-card {
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .explore-card--teal   { background: rgba(20,174,199,0.08); border: 1px solid rgba(20,174,199,0.2); }
+    .explore-card--dark   { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+    .explore-card--mid    { background: rgba(20,174,199,0.04); border: 1px solid rgba(20,174,199,0.1); }
+
+    .explore-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #14AEC7;
+    }
+
+    .explore-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(240,239,236,0.4);
+      text-transform: uppercase;
+    }
+
+    .explore-bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .explore-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(20,174,199,0.3);
+    }
+
+    .explore-bar--full  { width: 100%; }
+    .explore-bar--mid   { width: 65%; }
+    .explore-bar--short { width: 40%; }
+
+    /* Final identity showcase */
+    .identity-showcase {
+      background: linear-gradient(135deg, #06191d 0%, #0a3040 60%, #062428 100%);
+      aspect-ratio: 16 / 7;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      padding: 40px;
+      align-items: center;
+    }
+
+    .id-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(20,174,199,0.15);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .id-card__label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #14AEC7;
+      text-transform: uppercase;
+    }
+
+    .id-card__color-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .id-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    .id-type-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .id-type-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(240,239,236,0.15);
+    }
+
+    .id-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .id-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: #14AEC7;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .id-logo-text-bars {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .id-logo-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(240,239,236,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="../work.html" class="nav__link is-active">Work</a>
+        <a href="../about.html" class="nav__link">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+  <div class="cs-hero">
+    <div class="cs-hero__img">
+      <div class="cs-hero__img-inner cs-img--arujiva" id="cs-parallax">
+        <div class="cs-hero__brand-display" aria-hidden="true">
+          <div class="brand-mark">
+            <div class="brand-mark__inner"></div>
+          </div>
+          <div class="brand-wordmark">
+            <span class="brand-wordmark__name">Arujiva</span>
+            <span class="brand-wordmark__tagline">Brand Identity System</span>
+          </div>
+          <div class="brand-color-strip">
+            <div class="brand-swatch" style="background:#14AEC7"></div>
+            <div class="brand-swatch" style="background:#0D8FA8"></div>
+            <div class="brand-swatch" style="background:#062428"></div>
+            <div class="brand-swatch" style="background:#F0EFEC"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       INTRO
+  ========================================================== -->
+  <div class="cs-intro container">
+    <div class="cs-intro__inner">
+      <div>
+        <p class="t-label" style="margin-bottom: var(--sp-5)" data-animate>Brand Identity · 2024</p>
+        <h1 class="cs-intro__heading" data-animate data-delay="1">
+          Arujiva
+        </h1>
+        <p class="cs-intro__sub" data-animate data-delay="2">
+          Building a complete brand identity system from the ground up — logo mark, color system, typography, and a full brand guidelines document for a brand entering a credibility-first market.
+        </p>
+      </div>
+
+      <aside class="cs-meta" data-animate data-delay="3">
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Client</p>
+          <p class="cs-meta__value">Arujiva (Freelance)</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Role</p>
+          <p class="cs-meta__value">Brand Designer</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Deliverables</p>
+          <p class="cs-meta__value">Logo System · Color Palette · Typography · Brand Guidelines</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Year</p>
+          <p class="cs-meta__value">2024</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       SECTION 1 — THE BRIEF
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>The Brief</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A brand that earns trust before it speaks.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Arujiva came in without a visual identity of any kind — no logo, no colors, no guidelines. The brief was open: create a brand that positions them as credible, modern, and distinct within a space where most competitors default to the same visual language.
+        </p>
+        <p>
+          The core challenge wasn't aesthetic. It was strategic: how do you create something that feels confident and established, without looking like it's trying too hard? The brand needed to work across digital touchpoints, print collateral, and social media — all from a single coherent system.
+        </p>
+        <p>
+          The primary color decision — the teal that became <span style="color:#14AEC7; font-weight:600">#14AEC7</span> — came early and anchored everything else. It's distinct without being aggressive, modern without being cold.
+        </p>
+      </div>
+    </div>
+
+    <!-- Color system preview -->
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap: var(--sp-3); margin-top: var(--sp-12)">
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="1">
+        <div style="width:100%; height:48px; border-radius:4px; background:#14AEC7; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">PRIMARY</p>
+        <p style="font-size:var(--text-sm); font-weight:600">#14AEC7</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Arujiva Teal</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="2">
+        <div style="width:100%; height:48px; border-radius:4px; background:#0D8FA8; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">SECONDARY</p>
+        <p style="font-size:var(--text-sm); font-weight:600">#0D8FA8</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Deep Teal</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="3">
+        <div style="width:100%; height:48px; border-radius:4px; background:#062428; margin-bottom:var(--sp-4); border: 1px solid var(--border)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">DARK</p>
+        <p style="font-size:var(--text-sm); font-weight:600">#062428</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Brand Dark</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="4">
+        <div style="width:100%; height:48px; border-radius:4px; background:#F0EFEC; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">NEUTRAL</p>
+        <p style="font-size:var(--text-sm); font-weight:600">#F0EFEC</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Off-White</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 2 — APPROACH
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Approach</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        System-first, mark-second.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Most brand projects start with the logo. This one started with the system. Before drawing a single mark, I mapped out how the brand would need to behave: on a business card, on a social post, on a document header, on a building sign. That exercise defined the constraints — and the logo mark was designed to work within them.
+        </p>
+        <p>
+          Typography was set in Lato — a humanist sans-serif that has the clarity required for business communication while retaining warmth. The weight range (Light through Bold) gave the system enough flexibility to handle both editorial hierarchy and functional labelling without introducing a second typeface.
+        </p>
+        <p>
+          The final system was documented in a brand guidelines PDF covering: logo usage rules, clear space requirements, color values (HEX, RGB, CMYK, Pantone), type scale, and a set of do/don't examples for common misapplication scenarios.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       PROCESS — Exploration
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <div class="brand-exploration">
+        <div class="explore-card explore-card--teal">
+          <div class="explore-mark" style="border-radius:50%"></div>
+          <div class="explore-bar-group">
+            <div class="explore-bar explore-bar--full"></div>
+            <div class="explore-bar explore-bar--mid"></div>
+          </div>
+          <span class="explore-label">Direction A</span>
+        </div>
+        <div class="explore-card explore-card--dark">
+          <div class="explore-mark" style="border-radius:4px; transform:rotate(45deg)"></div>
+          <div class="explore-bar-group">
+            <div class="explore-bar explore-bar--full"></div>
+            <div class="explore-bar explore-bar--short"></div>
+          </div>
+          <span class="explore-label">Direction B</span>
+        </div>
+        <div class="explore-card explore-card--mid">
+          <div class="explore-mark" style="border-radius:10px; background: linear-gradient(135deg, #14AEC7, #0D8FA8)"></div>
+          <div class="explore-bar-group">
+            <div class="explore-bar explore-bar--full" style="background:rgba(20,174,199,0.5)"></div>
+            <div class="explore-bar explore-bar--mid" style="background:rgba(20,174,199,0.5)"></div>
+          </div>
+          <span class="explore-label">Direction C — Selected</span>
+        </div>
+      </div>
+      <figcaption>Three initial logo directions — structural, geometric, and the rounded-mark system that was developed into the final identity.</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 3 — KEY DECISIONS
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Key Decisions</p>
+
+    <div class="cs-two-col">
+      <div data-animate data-delay="1">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 01</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Teal as the only chromatic color.</h3>
+        <p class="t-body">
+          Most brand palettes hedge with multiple accent colors. For Arujiva, restraint was the message. A single primary hue — the teal — reinforced by one darker shade and a neutral off-white. This made the brand feel more decided, more confident, and more consistent across media.
+        </p>
+      </div>
+
+      <div data-animate data-delay="2">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 02</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Lato for all typographic roles.</h3>
+        <p class="t-body">
+          Single-typeface systems demand a font that can carry both display weight and body copy without becoming monotonous. Lato's humanist structure gives it personality at large sizes while staying highly legible at small. The Italic cuts added editorial flexibility when needed.
+        </p>
+      </div>
+
+      <div data-animate data-delay="3">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 03</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Mark designed to scale to a favicon.</h3>
+        <p class="t-body">
+          The logo mark needed to hold at 16×16 pixels — the favicon size — without becoming an unreadable blur. This shaped the simplicity of the final form. The single bounded shape with a single internal element reduces to a recognisable silhouette even at minimal sizes.
+        </p>
+      </div>
+
+      <div data-animate data-delay="4">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 04</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Guidelines written for non-designers.</h3>
+        <p class="t-body">
+          Brand guides fail when they're too technical for the people who have to use them. The Arujiva guidelines were written for the client's own team — people who would be creating social posts and presentations, not professional designers. Plain language, clear examples, obvious do/don't comparisons.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       FINAL IDENTITY
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <div class="identity-showcase">
+        <div class="id-card">
+          <span class="id-card__label">Color System</span>
+          <div class="id-card__color-row">
+            <div class="id-swatch" style="background:#14AEC7"></div>
+            <div class="id-swatch" style="background:#0D8FA8"></div>
+            <div class="id-swatch" style="background:#062428"></div>
+            <div class="id-swatch" style="background:#F0EFEC"></div>
+          </div>
+          <div class="id-type-row">
+            <div class="id-type-bar" style="width:100%"></div>
+            <div class="id-type-bar" style="width:70%"></div>
+          </div>
+        </div>
+        <div class="id-card" style="border-color: rgba(20,174,199,0.3)">
+          <span class="id-card__label">Logo System</span>
+          <div class="id-logo-row">
+            <div class="id-logo-mark"></div>
+            <div class="id-logo-text-bars">
+              <div class="id-logo-bar" style="width:80%"></div>
+              <div class="id-logo-bar" style="width:55%; background:rgba(20,174,199,0.3)"></div>
+            </div>
+          </div>
+          <div class="id-type-row">
+            <div class="id-type-bar" style="width:60%"></div>
+          </div>
+        </div>
+        <div class="id-card">
+          <span class="id-card__label">Typography</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="height:18px;background:rgba(240,239,236,0.3);border-radius:3px;width:60%"></div>
+            <div style="height:10px;background:rgba(240,239,236,0.15);border-radius:3px;width:90%"></div>
+            <div style="height:10px;background:rgba(240,239,236,0.15);border-radius:3px;width:80%"></div>
+            <div style="height:10px;background:rgba(240,239,236,0.15);border-radius:3px;width:70%"></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Final brand system — color palette, logo lockup, and typography hierarchy as documented in the brand guidelines.</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 4 — OUTCOME
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Outcome</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A complete system, ready to deploy across every channel.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The final deliverable was a complete brand identity system: primary and secondary logo lockups, a standalone mark for small-format use, the full color system with print and digital values, a Lato-based type scale, and a 20-page brand guidelines document.
+        </p>
+        <p>
+          The client used the guidelines directly to brief their social media manager and web developer — both of whom had no prior design experience. The system's clarity meant the brand stayed consistent from day one without requiring ongoing creative oversight.
+        </p>
+        <p>
+          The teal identity has since been applied to business cards, letterheads, social media templates, and the company website — all maintaining the same visual language established in the original system.
+        </p>
+      </div>
+    </div>
+
+    <div class="outcome-grid" style="margin-top: var(--sp-12)">
+      <div data-animate data-delay="1">
+        <p class="outcome-stat__number">4</p>
+        <p class="outcome-stat__label">Deliverable categories: logo, color, type, guidelines</p>
+      </div>
+      <div data-animate data-delay="2">
+        <p class="outcome-stat__number">20pg</p>
+        <p class="outcome-stat__label">Brand guidelines document</p>
+      </div>
+      <div data-animate data-delay="3">
+        <p class="outcome-stat__number">1</p>
+        <p class="outcome-stat__label">Primary color — discipline through restraint</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       NEXT PROJECT NAV
+  ========================================================== -->
+  <div class="cs-nav container">
+    <div class="cs-nav__inner">
+      <a href="../work.html" class="cs-nav__link">
+        <span class="cs-nav__dir">← All Work</span>
+        <span class="cs-nav__title">Back to portfolio</span>
+      </a>
+      <a href="meet-the-team.html" class="cs-nav__link cs-nav__link--next">
+        <span class="cs-nav__dir">Next Project →</span>
+        <span class="cs-nav__title">Meet The Team — Patil Group</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

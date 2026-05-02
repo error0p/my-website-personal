@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Satyam Pariyar</title>
+  <meta name="description" content="Satyam Pariyar is a brand and graphic designer based in Hyderabad, currently leading creative at Patil Group. Specializing in brand identity, campaign design, and B2B communication.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Experience timeline */
+    .experience-section {
+      padding-block: var(--sp-20);
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-list {
+      margin-top: var(--sp-12);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: var(--sp-8);
+      align-items: baseline;
+      padding-block: var(--sp-6);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-item__company {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .exp-item__role {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+    }
+
+    .exp-item__years {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      .exp-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: var(--sp-1) var(--sp-4);
+      }
+
+      .exp-item__role {
+        grid-column: 1 / -1;
+        font-size: var(--text-sm);
+      }
+
+      .exp-item__years {
+        text-align: right;
+      }
+    }
+
+    /* Services */
+    .services-section {
+      padding-block: var(--sp-20);
+      border-top: 1px solid var(--border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-top: var(--sp-12);
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: 4px;
+      padding: var(--sp-8);
+    }
+
+    .service-card__num {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--sp-6);
+    }
+
+    .service-card__title {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-3);
+    }
+
+    .service-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="work.html" class="nav__link">Work</a>
+        <a href="about.html" class="nav__link is-active">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       ABOUT HERO
+  ========================================================== -->
+  <section class="about-hero container">
+    <div class="about-hero__inner">
+
+      <!-- Portrait -->
+      <div data-animate>
+        <div class="about-portrait">
+          <div class="about-portrait__placeholder">
+            <span>SP</span>
+          </div>
+          <!-- When you have a photo, replace the placeholder div above with:
+               <img src="assets/img/portrait.jpg" alt="Satyam Pariyar" class="about-portrait__img"> -->
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="about-info">
+        <div>
+          <p class="t-label" style="margin-bottom: var(--sp-5)" data-animate>About me</p>
+          <h1 class="about-info__heading" data-animate data-delay="1">
+            Brand.<br>Campaign.<br>System.
+          </h1>
+        </div>
+
+        <div data-animate data-delay="2">
+          <p class="t-lead about-info__text">
+            I'm Satyam — a brand and graphic designer based in Hyderabad, currently leading creative at Patil Group, one of India's established infrastructure and manufacturing conglomerates.
+          </p>
+          <p class="t-body about-info__text">
+            My work spans brand identity systems, employer branding campaigns, B2B communication design, and motion graphics. The common thread: translating large, complex organizations into visual systems that feel coherent, credible, and human.
+          </p>
+          <p class="t-body about-info__text">
+            Before Patil Group, I designed at Book Transpo and interned at Raizada Infratech — and before that, three years of independent work for clients across logistics, technology, and professional services. I hold a BSc in Multimedia, Animation & Graphics from Inspiria Knowledge Campus, Siliguri.
+          </p>
+        </div>
+
+        <div class="about-meta" data-animate data-delay="3">
+          <div class="about-meta__item">
+            <p class="about-meta__label">Based in</p>
+            <p class="about-meta__value">Hyderabad / Bangalore</p>
+          </div>
+          <div class="about-meta__item">
+            <p class="about-meta__label">Available for</p>
+            <p class="about-meta__value">Full-time &amp; Freelance</p>
+          </div>
+          <div class="about-meta__item">
+            <p class="about-meta__label">Experience</p>
+            <p class="about-meta__value">3+ Years</p>
+          </div>
+          <div class="about-meta__item">
+            <p class="about-meta__label">Education</p>
+            <p class="about-meta__value">BSc Multimedia, Animation &amp; Graphics — Inspiria, 2025</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       SERVICES
+  ========================================================== -->
+  <section class="services-section container">
+    <p class="t-label" data-animate>What I do</p>
+
+    <div class="services-grid">
+
+      <div class="service-card" data-animate data-delay="1">
+        <p class="service-card__num">01</p>
+        <h3 class="service-card__title">Brand Identity</h3>
+        <p class="service-card__desc">
+          Logo and mark development, color systems, typography, brand guidelines, and full identity systems — built to stay consistent from a business card to a billboard. Built for teams who will actually use them.
+        </p>
+      </div>
+
+      <div class="service-card" data-animate data-delay="2">
+        <p class="service-card__num">02</p>
+        <h3 class="service-card__title">Campaign Design</h3>
+        <p class="service-card__desc">
+          Multi-piece creative campaigns for social, digital, and print. Employer branding, awareness campaigns, product launches — with a consistent visual system that holds across every touchpoint.
+        </p>
+      </div>
+
+      <div class="service-card" data-animate data-delay="3">
+        <p class="service-card__num">03</p>
+        <h3 class="service-card__title">B2B Communication Design</h3>
+        <p class="service-card__desc">
+          Brochures, pitch decks, annual reports, and technical collateral that translate complex organizations into clear, credible visual language — for both executive and technical audiences.
+        </p>
+      </div>
+
+      <div class="service-card" data-animate data-delay="4">
+        <p class="service-card__num">04</p>
+        <h3 class="service-card__title">Creative Direction</h3>
+        <p class="service-card__desc">
+          Visual direction and quality control for teams building at scale. Photography direction, content system architecture, and brand governance — making sure the work stays sharp as it grows.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       EXPERIENCE
+  ========================================================== -->
+  <section class="experience-section container">
+    <p class="t-label" data-animate>Experience</p>
+
+    <div class="exp-list">
+
+      <div class="exp-item" data-animate data-delay="1">
+        <span class="exp-item__company">Patil Group</span>
+        <span class="exp-item__role">Creative Graphic Designer Lead · Hyderabad</span>
+        <span class="exp-item__years">Sept 2025 — Present</span>
+      </div>
+
+      <div class="exp-item" data-animate data-delay="2">
+        <span class="exp-item__company">Book Transpo</span>
+        <span class="exp-item__role">Graphic Designer · Hyderabad</span>
+        <span class="exp-item__years">Jul 2025 — Sept 2025</span>
+      </div>
+
+      <div class="exp-item" data-animate data-delay="3">
+        <span class="exp-item__company">Raizada Infratech</span>
+        <span class="exp-item__role">Graphic Designer Intern · Siliguri</span>
+        <span class="exp-item__years">Jan 2025 — Jun 2025</span>
+      </div>
+
+      <div class="exp-item" data-animate data-delay="4">
+        <span class="exp-item__company">Freelance</span>
+        <span class="exp-item__role">Independent Graphic Designer</span>
+        <span class="exp-item__years">2022 — 2024</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       SKILLS
+  ========================================================== -->
+  <section class="skills-section container">
+    <p class="t-label" data-animate>Capabilities</p>
+
+    <div class="skills-grid">
+
+      <div data-animate data-delay="1">
+        <h3 class="skill-group__heading">Disciplines</h3>
+        <ul class="skill-group__list">
+          <li class="skill-group__item">Brand Identity &amp; Systems</li>
+          <li class="skill-group__item">Campaign Design</li>
+          <li class="skill-group__item">Employer Branding</li>
+          <li class="skill-group__item">B2B Communication</li>
+          <li class="skill-group__item">Typography &amp; Layout</li>
+          <li class="skill-group__item">Motion Graphics</li>
+          <li class="skill-group__item">Print &amp; Editorial</li>
+          <li class="skill-group__item">Photography Direction</li>
+        </ul>
+      </div>
+
+      <div data-animate data-delay="2">
+        <h3 class="skill-group__heading">Tools</h3>
+        <ul class="skill-group__list">
+          <li class="skill-group__item">Adobe Illustrator</li>
+          <li class="skill-group__item">Adobe Photoshop</li>
+          <li class="skill-group__item">Adobe InDesign</li>
+          <li class="skill-group__item">Adobe After Effects</li>
+          <li class="skill-group__item">Adobe Premiere Pro</li>
+          <li class="skill-group__item">Figma</li>
+          <li class="skill-group__item">Canva</li>
+        </ul>
+      </div>
+
+      <div data-animate data-delay="3">
+        <h3 class="skill-group__heading">Strengths</h3>
+        <ul class="skill-group__list">
+          <li class="skill-group__item">Brand Consistency</li>
+          <li class="skill-group__item">Creative Direction</li>
+          <li class="skill-group__item">Cross-functional Collaboration</li>
+          <li class="skill-group__item">B2B Marketing</li>
+          <li class="skill-group__item">Visual Storytelling</li>
+          <li class="skill-group__item">Campaign Leadership</li>
+          <li class="skill-group__item">Quality Control</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       CTA
+  ========================================================== -->
+  <section class="cta-section container">
+    <p class="t-label cta-section__eyebrow" data-animate>Get in touch</p>
+    <p class="cta-section__heading" data-animate data-delay="1">
+      Have a project?<br>Let's talk.
+    </p>
+    <a
+      href="mailto:satyampariyar275@gmail.com"
+      class="cta-section__email"
+      data-animate
+      data-delay="2"
+    >
+      satyampariyar275@gmail.com
+    </a>
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

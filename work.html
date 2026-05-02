@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Satyam Pariyar</title>
+  <meta name="description" content="Selected brand and graphic design projects by Satyam Pariyar — case studies in brand identity, campaign design, employer branding, and B2B communication.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Work-page-specific overrides */
+    .project-card--work .card__img-wrap {
+      aspect-ratio: 4 / 3;
+    }
+
+    /* Hover: dim sibling cards */
+    .project-grid:has(.project-card:hover) .project-card:not(:hover) {
+      opacity: 0.55;
+      transition: opacity 280ms ease;
+    }
+
+    .project-grid .project-card {
+      transition: opacity 280ms ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="work.html" class="nav__link is-active">Work</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       PAGE HERO
+  ========================================================== -->
+  <div class="page-hero container">
+    <p class="t-label page-hero__eyebrow" data-animate>Portfolio</p>
+    <h1 class="t-hero page-hero__heading" data-animate data-delay="1">Work</h1>
+    <p class="t-lead page-hero__sub" data-animate data-delay="2">
+      Brand identity, campaign design, and visual systems — built for organizations that mean business.
+    </p>
+  </div>
+
+
+  <!-- =========================================================
+       FILTER + GRID
+  ========================================================== -->
+  <div class="container">
+    <div class="filter-bar" data-animate data-delay="3">
+      <button class="filter-btn is-active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="campaign">Campaign</button>
+      <button class="filter-btn" data-filter="print">Print</button>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- 01 Arujiva — Branding -->
+      <a
+        href="case-studies/arujiva.html"
+        class="project-card project-card--work"
+        data-category="branding"
+        data-animate
+        data-delay="1"
+      >
+        <div class="card__img-wrap">
+          <div class="card__img card__img--arujiva"></div>
+          <span class="card__pill">Brand Identity</span>
+          <div class="card__overlay">
+            <span class="card__view-btn">View Case Study</span>
+          </div>
+        </div>
+        <div class="card__meta">
+          <div>
+            <p class="t-sm" style="margin-bottom:2px">01</p>
+            <h3 class="card__title">Arujiva — Brand Identity System</h3>
+          </div>
+          <span class="card__year">2024</span>
+          <svg class="card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- 02 Meet The Team — Campaign -->
+      <a
+        href="case-studies/meet-the-team.html"
+        class="project-card project-card--work"
+        data-category="campaign"
+        data-animate
+        data-delay="2"
+      >
+        <div class="card__img-wrap">
+          <div class="card__img card__img--meettheteam"></div>
+          <span class="card__pill">Employer Branding</span>
+          <div class="card__overlay">
+            <span class="card__view-btn">View Case Study</span>
+          </div>
+        </div>
+        <div class="card__meta">
+          <div>
+            <p class="t-sm" style="margin-bottom:2px">02</p>
+            <h3 class="card__title">Meet The Team — Patil Group</h3>
+          </div>
+          <span class="card__year">2025–26</span>
+          <svg class="card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- 03 World Health Day — Campaign -->
+      <a
+        href="work.html"
+        class="project-card project-card--work"
+        data-category="campaign"
+        data-animate
+        data-delay="3"
+      >
+        <div class="card__img-wrap">
+          <div class="card__img card__img--healthday"></div>
+          <span class="card__pill">Campaign</span>
+          <div class="card__overlay">
+            <span class="card__view-btn">View Case Study</span>
+          </div>
+        </div>
+        <div class="card__meta">
+          <div>
+            <p class="t-sm" style="margin-bottom:2px">03</p>
+            <h3 class="card__title">World Health Day Campaign</h3>
+          </div>
+          <span class="card__year">2026</span>
+          <svg class="card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- 04 Precast Brochure — Print -->
+      <a
+        href="work.html"
+        class="project-card project-card--work"
+        data-category="print"
+        data-animate
+        data-delay="1"
+      >
+        <div class="card__img-wrap">
+          <div class="card__img card__img--precast"></div>
+          <span class="card__pill">Print · B2B</span>
+          <div class="card__overlay">
+            <span class="card__view-btn">View Case Study</span>
+          </div>
+        </div>
+        <div class="card__meta">
+          <div>
+            <p class="t-sm" style="margin-bottom:2px">04</p>
+            <h3 class="card__title">Precast Product Brochure — Patil Group</h3>
+          </div>
+          <span class="card__year">2025</span>
+          <svg class="card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- 05 Digital Content Ecosystem — Campaign -->
+      <a
+        href="work.html"
+        class="project-card project-card--work"
+        data-category="campaign"
+        data-animate
+        data-delay="2"
+      >
+        <div class="card__img-wrap">
+          <div class="card__img card__img--digital"></div>
+          <span class="card__pill">Content Design</span>
+          <div class="card__overlay">
+            <span class="card__view-btn">View Case Study</span>
+          </div>
+        </div>
+        <div class="card__meta">
+          <div>
+            <p class="t-sm" style="margin-bottom:2px">05</p>
+            <h3 class="card__title">Digital Content Ecosystem — Patil Group</h3>
+          </div>
+          <span class="card__year">2025–26</span>
+          <svg class="card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       CTA
+  ========================================================== -->
+  <section class="cta-section container">
+    <p class="t-label cta-section__eyebrow" data-animate>Get in touch</p>
+    <p class="cta-section__heading" data-animate data-delay="1">
+      Have a project?<br>Let's talk.
+    </p>
+    <a
+      href="mailto:satyampariyar275@gmail.com"
+      class="cta-section__email"
+      data-animate
+      data-delay="2"
+    >
+      satyampariyar275@gmail.com
+    </a>
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

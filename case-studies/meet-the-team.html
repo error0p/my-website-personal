@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet The Team — Patil Group · Satyam Pariyar</title>
+  <meta name="description" content="Designing an ongoing employer branding campaign for Patil Group — a bold, people-first visual series that puts faces to a 5,000-person infrastructure conglomerate.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <style>
+    /* Meet The Team hero — deep crimson campaign */
+    .cs-hero__img-inner.cs-img--meettheteam {
+      background: linear-gradient(155deg, #1a0505 0%, #3d0e0e 40%, #5c1a1a 70%, #2a0808 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-hero__img-inner.cs-img--meettheteam::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 40% 60%, rgba(180, 30, 30, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 25%, rgba(220, 50, 50, 0.12) 0%, transparent 45%);
+    }
+
+    /* Simulated social post grid in hero */
+    .cs-hero__post-grid {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 40px;
+    }
+
+    .hero-post {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      flex: 1;
+      max-width: 160px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero-post__photo {
+      flex: 1;
+      background: rgba(180,30,30,0.2);
+      border-radius: 8px 8px 0 0;
+    }
+
+    .hero-post__text {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-post__bar {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .hero-post--featured {
+      max-width: 200px;
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .hero-post--featured .hero-post__photo {
+      background: rgba(180,30,30,0.35);
+    }
+
+    /* Campaign template grid */
+    .campaign-grid {
+      background: #1a0808;
+      aspect-ratio: 16 / 7;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      padding: 28px;
+      align-items: stretch;
+    }
+
+    .campaign-post {
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .campaign-post__img {
+      flex: 1;
+      background: rgba(180,30,30,0.2);
+      min-height: 80px;
+    }
+
+    .campaign-post--1 .campaign-post__img { background: linear-gradient(180deg, rgba(92,26,26,0.6) 0%, rgba(26,5,5,0.8) 100%); }
+    .campaign-post--2 .campaign-post__img { background: linear-gradient(180deg, rgba(61,14,14,0.8) 0%, rgba(26,5,5,0.6) 100%); }
+    .campaign-post--3 .campaign-post__img { background: linear-gradient(180deg, rgba(92,26,26,0.9) 0%, rgba(42,8,8,0.7) 100%); }
+    .campaign-post--4 .campaign-post__img { background: linear-gradient(180deg, rgba(61,14,14,0.6) 0%, rgba(26,5,5,0.9) 100%); }
+    .campaign-post--5 .campaign-post__img { background: linear-gradient(180deg, rgba(92,26,26,0.7) 0%, rgba(42,8,8,0.8) 100%); }
+
+    .campaign-post__footer {
+      background: rgba(255,255,255,0.05);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .campaign-post__label {
+      height: 5px;
+      border-radius: 2px;
+      background: rgba(200,50,50,0.5);
+    }
+
+    .campaign-post__sub {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.2);
+      width: 70%;
+    }
+
+    /* Department breakdown grid */
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-3);
+      margin-top: var(--sp-12);
+    }
+
+    .dept-card {
+      background: var(--bg-card);
+      border-radius: 4px;
+      padding: var(--sp-8);
+    }
+
+    .dept-card__num {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: #B41E1E;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--sp-3);
+    }
+
+    .dept-card__name {
+      font-size: var(--text-base);
+      font-weight: 600;
+      margin-bottom: var(--sp-2);
+    }
+
+    .dept-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .dept-grid { grid-template-columns: repeat(2, 1fr); }
+      .campaign-grid { grid-template-columns: repeat(3, 1fr); }
+      .campaign-post--4,
+      .campaign-post--5 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="../work.html" class="nav__link is-active">Work</a>
+        <a href="../about.html" class="nav__link">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+  <div class="cs-hero">
+    <div class="cs-hero__img">
+      <div class="cs-hero__img-inner cs-img--meettheteam" id="cs-parallax">
+        <div class="cs-hero__post-grid" aria-hidden="true">
+          <div class="hero-post">
+            <div class="hero-post__photo"></div>
+            <div class="hero-post__text">
+              <div class="hero-post__bar"></div>
+              <div class="hero-post__bar" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="hero-post hero-post--featured">
+            <div class="hero-post__photo"></div>
+            <div class="hero-post__text">
+              <div class="hero-post__bar"></div>
+              <div class="hero-post__bar" style="width:75%"></div>
+            </div>
+          </div>
+          <div class="hero-post">
+            <div class="hero-post__photo"></div>
+            <div class="hero-post__text">
+              <div class="hero-post__bar"></div>
+              <div class="hero-post__bar" style="width:50%"></div>
+            </div>
+          </div>
+          <div class="hero-post" style="opacity:0.6">
+            <div class="hero-post__photo"></div>
+            <div class="hero-post__text">
+              <div class="hero-post__bar"></div>
+              <div class="hero-post__bar" style="width:65%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       INTRO
+  ========================================================== -->
+  <div class="cs-intro container">
+    <div class="cs-intro__inner">
+      <div>
+        <p class="t-label" style="margin-bottom: var(--sp-5)" data-animate>Employer Branding · 2025–26</p>
+        <h1 class="cs-intro__heading" data-animate data-delay="1">
+          Meet The Team
+        </h1>
+        <p class="cs-intro__sub" data-animate data-delay="2">
+          An ongoing employer branding campaign for Patil Group — designing a bold, repeatable social media series that puts faces to one of India's largest infrastructure and manufacturing conglomerates.
+        </p>
+      </div>
+
+      <aside class="cs-meta" data-animate data-delay="3">
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Client</p>
+          <p class="cs-meta__value">Patil Group</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Role</p>
+          <p class="cs-meta__value">Creative Graphic Designer Lead</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Deliverables</p>
+          <p class="cs-meta__value">Campaign Design · Template System · Social Content · Brand Direction</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Year</p>
+          <p class="cs-meta__value">2025–26 (Ongoing)</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       SECTION 1 — THE CHALLENGE
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>The Challenge</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A 5,000-person company with no human face.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Patil Group employs thousands of people across infrastructure, manufacturing, and logistics. But on social media, the company's presence looked like every other B2B conglomerate: project announcements, corporate milestones, zero personality.
+        </p>
+        <p>
+          The employer branding brief was clear: make people want to work here. That meant making the company feel human — showing the people inside, not just the buildings they build. The challenge was doing it at scale, consistently, without it feeling like a corporate obligation.
+        </p>
+        <p>
+          The answer was a campaign system, not a one-off campaign. Something repeatable enough that a new post could be produced every week, with consistent visual quality, without requiring a creative brief every time.
+        </p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: var(--sp-3); margin-top: var(--sp-12)">
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="1">
+        <p style="font-size: clamp(2rem, 4vw, 3rem); font-weight:700; letter-spacing:-0.04em; line-height:1; margin-bottom:var(--sp-2)">5K+</p>
+        <p class="t-sm">Employees across Patil Group's divisions</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="2">
+        <p style="font-size: clamp(2rem, 4vw, 3rem); font-weight:700; letter-spacing:-0.04em; line-height:1; margin-bottom:var(--sp-2)">5+</p>
+        <p class="t-sm">Departments featured across the campaign series</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="3">
+        <p style="font-size: clamp(2rem, 4vw, 3rem); font-weight:700; letter-spacing:-0.04em; line-height:1; margin-bottom:var(--sp-2)">1</p>
+        <p class="t-sm">Template system that works across all departments</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 2 — APPROACH
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Approach</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        Bold text over real photography.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The visual technique was deliberate: large, weighted typography placed directly over photography — not adjacent to it, but integrated into it. This gave each post immediate visual impact on a crowded social feed, and it created a consistent "look" that was instantly recognisable as Patil Group.
+        </p>
+        <p>
+          The design system was built around a template that could absorb any department's photography and story without requiring custom layouts. The constrained grid — headline position, department label, name/role fields — meant every post looked like part of a family, whether it featured a site engineer or a finance manager.
+        </p>
+        <p>
+          Color accents pulled from the brand's existing red, applied as text treatments and overlays rather than solid fills. This kept the photography prominent — the people — rather than the branding.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       CAMPAIGN SERIES
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <div class="campaign-grid">
+        <div class="campaign-post campaign-post--1">
+          <div class="campaign-post__img"></div>
+          <div class="campaign-post__footer">
+            <div class="campaign-post__label"></div>
+            <div class="campaign-post__sub"></div>
+          </div>
+        </div>
+        <div class="campaign-post campaign-post--2">
+          <div class="campaign-post__img"></div>
+          <div class="campaign-post__footer">
+            <div class="campaign-post__label"></div>
+            <div class="campaign-post__sub"></div>
+          </div>
+        </div>
+        <div class="campaign-post campaign-post--3">
+          <div class="campaign-post__img"></div>
+          <div class="campaign-post__footer">
+            <div class="campaign-post__label"></div>
+            <div class="campaign-post__sub"></div>
+          </div>
+        </div>
+        <div class="campaign-post campaign-post--4">
+          <div class="campaign-post__img"></div>
+          <div class="campaign-post__footer">
+            <div class="campaign-post__label"></div>
+            <div class="campaign-post__sub"></div>
+          </div>
+        </div>
+        <div class="campaign-post campaign-post--5">
+          <div class="campaign-post__img"></div>
+          <div class="campaign-post__footer">
+            <div class="campaign-post__label"></div>
+            <div class="campaign-post__sub"></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Five posts from the ongoing series — each featuring a different team member, all sharing the same visual system.</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 3 — DEPARTMENTS
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Departments Featured</p>
+    <p class="cs-section__heading" style="max-width:500px; margin-bottom:var(--sp-12)" data-animate data-delay="1">
+      Every team gets the same stage.
+    </p>
+
+    <div class="dept-grid">
+      <div class="dept-card" data-animate data-delay="1">
+        <p class="dept-card__num">01</p>
+        <p class="dept-card__name">Engineering & Site</p>
+        <p class="dept-card__desc">The people building on the ground. Engineers, site supervisors, and project leads whose work becomes physical infrastructure.</p>
+      </div>
+      <div class="dept-card" data-animate data-delay="2">
+        <p class="dept-card__num">02</p>
+        <p class="dept-card__name">Design & Creative</p>
+        <p class="dept-card__desc">Architects, interior teams, and the creative functions behind Patil Group's built environments.</p>
+      </div>
+      <div class="dept-card" data-animate data-delay="3">
+        <p class="dept-card__num">03</p>
+        <p class="dept-card__name">Operations & Logistics</p>
+        <p class="dept-card__desc">The coordination layer that keeps large-scale projects on schedule — procurement, supply chain, and delivery.</p>
+      </div>
+      <div class="dept-card" data-animate data-delay="4">
+        <p class="dept-card__num">04</p>
+        <p class="dept-card__name">Corporate & Finance</p>
+        <p class="dept-card__desc">HR, legal, finance, and the functions that make a conglomerate run — less visible, equally essential.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 4 — KEY DECISIONS
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Key Decisions</p>
+
+    <div class="cs-two-col">
+      <div data-animate data-delay="1">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 01</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Text as the visual element, not the caption.</h3>
+        <p class="t-body">
+          Conventional employer branding puts the person first and the copy as a subtitle. Here, typography is the visual anchor — large enough to read before the photo is processed. This creates a scroll-stopping effect without relying on animation or heavy production.
+        </p>
+      </div>
+
+      <div data-animate data-delay="2">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 02</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">One template, not six layouts.</h3>
+        <p class="t-body">
+          The system is built on a single constrained template that forces good decisions. Headline position is fixed. Department label position is fixed. Name/role fields are fixed. The only variable is the photography — which is exactly what should vary. Constraint creates consistency.
+        </p>
+      </div>
+
+      <div data-animate data-delay="3">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 03</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Quotes over job descriptions.</h3>
+        <p class="t-body">
+          Each post leads with a direct quote from the team member, not a title or a department description. This shifts the voice from corporate to personal — the company is speaking through its people, not about them. A small copy decision with a big tonal impact.
+        </p>
+      </div>
+
+      <div data-animate data-delay="4">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 04</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Designed to be produced weekly.</h3>
+        <p class="t-body">
+          The system was built with operational cadence in mind. Any designer (or trained non-designer) can use the template to produce a new post in under an hour once the photography is in hand. Scalability was part of the creative brief.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 5 — OUTCOME
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Outcome</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A campaign system that scales with the organisation.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The Meet The Team series is now a permanent fixture in Patil Group's LinkedIn and Instagram content calendar. The template system means new posts can be produced consistently without briefing a designer from scratch each time.
+        </p>
+        <p>
+          Beyond social media, the campaign has created an internal benefit: teams that see their colleagues featured engage with the content and share it, expanding reach organically. The employer brand is being built from the inside out.
+        </p>
+        <p>
+          The series continues to expand across more departments and seniority levels — from frontline site workers to senior leadership — maintaining the same visual language throughout.
+        </p>
+      </div>
+    </div>
+
+    <div class="outcome-grid" style="margin-top: var(--sp-12)">
+      <div data-animate data-delay="1">
+        <p class="outcome-stat__number">Ongoing</p>
+        <p class="outcome-stat__label">Active campaign series since Sept 2025</p>
+      </div>
+      <div data-animate data-delay="2">
+        <p class="outcome-stat__number">5+</p>
+        <p class="outcome-stat__label">Departments profiled and counting</p>
+      </div>
+      <div data-animate data-delay="3">
+        <p class="outcome-stat__number">1hr</p>
+        <p class="outcome-stat__label">Post production time with the template system</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       NEXT PROJECT NAV
+  ========================================================== -->
+  <div class="cs-nav container">
+    <div class="cs-nav__inner">
+      <a href="arujiva.html" class="cs-nav__link">
+        <span class="cs-nav__dir">← Previous Project</span>
+        <span class="cs-nav__title">Arujiva — Brand Identity System</span>
+      </a>
+      <a href="../work.html" class="cs-nav__link cs-nav__link--next">
+        <span class="cs-nav__dir">All Work →</span>
+        <span class="cs-nav__title">Back to portfolio</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
