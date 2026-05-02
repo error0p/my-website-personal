@@ -699,43 +699,29 @@ ul, ol {
 
 /*
    Right-to-left scroll with 0.1s "stop" at each image.
-   Per 10% block (= 2s of 20s):
-     0–7%   (1.4s) → dwell on current image
-     7–9.5% (0.5s) → ease-in-out scroll to next image
-     9.5–10%(0.1s) → linear pause / "stop" at new image
+   Each image gets 10% of duration. Hold for 9% (dwell), scroll quickly, then snap-pause for 0.5%.
 */
 @keyframes imgScrollLeft {
-  0%     { transform: translateX(0); animation-timing-function: linear; }
-  7%     { transform: translateX(0); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  9.5%   { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: linear; }
-  10%    { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: linear; }
-  17%    { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  19.5%  { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: linear; }
-  20%    { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: linear; }
-  27%    { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  29.5%  { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: linear; }
-  30%    { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: linear; }
-  37%    { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  39.5%  { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: linear; }
-  40%    { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: linear; }
-  47%    { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  49.5%  { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: linear; }
-  50%    { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: linear; }
-  57%    { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  59.5%  { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: linear; }
-  60%    { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: linear; }
-  67%    { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  69.5%  { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: linear; }
-  70%    { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: linear; }
-  77%    { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  79.5%  { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: linear; }
-  80%    { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: linear; }
-  87%    { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  89.5%  { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: linear; }
-  90%    { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: linear; }
-  97%    { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  99.5%  { transform: translateX(calc(-100% / 20 * 10)); animation-timing-function: linear; }
-  100%   { transform: translateX(calc(-100% / 20 * 10)); }
+  0%, 9%       { transform: translateX(0); }
+  9.5%, 10%    { transform: translateX(calc(-100% / 20 * 1)); }
+  19%          { transform: translateX(calc(-100% / 20 * 1)); }
+  19.5%, 20%   { transform: translateX(calc(-100% / 20 * 2)); }
+  29%          { transform: translateX(calc(-100% / 20 * 2)); }
+  29.5%, 30%   { transform: translateX(calc(-100% / 20 * 3)); }
+  39%          { transform: translateX(calc(-100% / 20 * 3)); }
+  39.5%, 40%   { transform: translateX(calc(-100% / 20 * 4)); }
+  49%          { transform: translateX(calc(-100% / 20 * 4)); }
+  49.5%, 50%   { transform: translateX(calc(-100% / 20 * 5)); }
+  59%          { transform: translateX(calc(-100% / 20 * 5)); }
+  59.5%, 60%   { transform: translateX(calc(-100% / 20 * 6)); }
+  69%          { transform: translateX(calc(-100% / 20 * 6)); }
+  69.5%, 70%   { transform: translateX(calc(-100% / 20 * 7)); }
+  79%          { transform: translateX(calc(-100% / 20 * 7)); }
+  79.5%, 80%   { transform: translateX(calc(-100% / 20 * 8)); }
+  89%          { transform: translateX(calc(-100% / 20 * 8)); }
+  89.5%, 90%   { transform: translateX(calc(-100% / 20 * 9)); }
+  99%          { transform: translateX(calc(-100% / 20 * 9)); }
+  99.5%, 100%  { transform: translateX(calc(-100% / 20 * 10)); }
 }
 
 /* Case study large scroll gallery */
@@ -1351,6 +1337,17 @@ ul, ol {
   transition:
     opacity  var(--dur-enter) var(--ease-out),
     transform var(--dur-enter) var(--ease-out);
+}
+
+/* Fallback — if JS hasn't run after 2s, reveal everything anyway. */
+@keyframes revealFallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+[data-animate] {
+  animation: revealFallback 0.8s var(--ease-out) 2s forwards;
+}
+[data-animate].is-visible {
+  animation: none;
 }
 
 [data-animate].is-visible {
