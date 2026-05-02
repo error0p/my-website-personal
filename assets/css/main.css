@@ -622,10 +622,9 @@ ul, ol {
   background-position: center;
 }
 
-/* Skyverrra card matches the banner's natural aspect (1920×571).
-   Keeps the card short instead of a tall 16:9 with wasted padding. */
+/* Skyverrra card sized to 414 × 414.63 — square thumbnail. */
 .card__img-wrap:has(.card__img--skyverrra) {
-  aspect-ratio: 1920 / 571;
+  aspect-ratio: 414 / 414.63;
 }
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
