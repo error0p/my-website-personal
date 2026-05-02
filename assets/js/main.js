@@ -231,3 +231,155 @@
     track.style.animationPlayState = 'paused';
   }
 })();
+
+
+/* ============================================================
+   FEATURED GALLERY — perspective carousel with drag/swipe
+   ============================================================ */
+
+(function initFeaturedGallery() {
+  const root = document.querySelector('.featured-gallery');
+  if (!root) return;
+
+  const stage   = root.querySelector('.gallery__stage');
+  const cards   = [...root.querySelectorAll('.gallery__card')];
+  const dots    = [...root.querySelectorAll('.gallery__dot')];
+  const prevBtn = root.querySelector('.gallery__nav--prev');
+  const nextBtn = root.querySelector('.gallery__nav--next');
+
+  if (!cards.length) return;
+
+  // Start with the middle card (index 1) centered
+  let current = Math.floor(cards.length / 2);
+  let cardWidth = 0;
+  let dragOffset = 0;
+  let isDragging = false;
+  let startX = 0;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let suppressClick = false;
+
+  function measure() {
+    const rect = stage.getBoundingClientRect();
+    cardWidth = Math.min(rect.width * 0.55, 460);
+  }
+
+  function applyTransforms(animate) {
+    const offsetCards = dragOffset / cardWidth;
+
+    cards.forEach((card, i) => {
+      const dist = (i - current) - offsetCards;
+      const abs  = Math.min(Math.abs(dist), 3);
+
+      // Horizontal placement, with cards overlapping toward the center
+      const x        = dist * cardWidth * 0.62;
+      // Push side cards back in 3D space for parallax depth
+      const z        = -abs * 90;
+      // Scale: center card largest
+      const scale    = 1 - abs * 0.10;
+      // Opacity: side cards faded
+      const opacity  = Math.max(0, 1 - abs * 0.38);
+      // Blur: side cards softened
+      const blur     = abs * 3.2;
+      // Rotate Y: side cards tilted toward center
+      const rotateY  = -dist * 11;
+
+      if (!animate) card.classList.add('is-dragging');
+      else card.classList.remove('is-dragging');
+
+      card.style.transform = `translate3d(calc(-50% + ${x}px), -50%, ${z}px) scale(${scale}) rotateY(${rotateY}deg)`;
+      card.style.opacity   = opacity.toFixed(3);
+      card.style.filter    = `blur(${blur.toFixed(2)}px)`;
+      card.style.zIndex    = String(Math.round(100 - abs * 20));
+      card.style.pointerEvents = abs < 0.5 ? 'auto' : 'none';
+      card.classList.toggle('is-center', Math.abs(i - current) === 0 && Math.abs(offsetCards) < 0.1);
+    });
+
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(cards.length - 1, index));
+    dragOffset = 0;
+    applyTransforms(true);
+  }
+
+  // ---------- Drag / swipe ----------
+
+  function pointerStart(e) {
+    isDragging = true;
+    suppressClick = false;
+    const point = e.touches ? e.touches[0] : e;
+    startX = lastX = point.clientX;
+    lastTime = performance.now();
+    velocity = 0;
+  }
+
+  function pointerMove(e) {
+    if (!isDragging) return;
+    const point = e.touches ? e.touches[0] : e;
+    const now = performance.now();
+    const dt = Math.max(1, now - lastTime);
+    velocity = (point.clientX - lastX) / dt;
+    lastX = point.clientX;
+    lastTime = now;
+
+    dragOffset = point.clientX - startX;
+    if (Math.abs(dragOffset) > 6) suppressClick = true;
+    applyTransforms(false);
+  }
+
+  function pointerEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    // Inertia: factor velocity into snap decision
+    const inertia = velocity * 120;
+    const projected = dragOffset + inertia;
+    const threshold = cardWidth * 0.18;
+
+    if (projected > threshold && current > 0) {
+      goTo(current - 1);
+    } else if (projected < -threshold && current < cards.length - 1) {
+      goTo(current + 1);
+    } else {
+      goTo(current);
+    }
+
+    // Suppress click on cards if drag was significant
+    if (suppressClick) {
+      const blockClick = (e) => { e.preventDefault(); e.stopPropagation(); };
+      cards.forEach(c => c.addEventListener('click', blockClick, { capture: true, once: true }));
+    }
+  }
+
+  // Pointer / touch listeners
+  stage.addEventListener('mousedown',  pointerStart);
+  stage.addEventListener('touchstart', pointerStart, { passive: true });
+  window.addEventListener('mousemove', pointerMove);
+  window.addEventListener('touchmove', pointerMove, { passive: true });
+  window.addEventListener('mouseup',   pointerEnd);
+  window.addEventListener('touchend',  pointerEnd);
+  stage.addEventListener('dragstart',  e => e.preventDefault());
+
+  // ---------- Nav controls ----------
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  // Keyboard nav when gallery is in viewport
+  window.addEventListener('keydown', (e) => {
+    const inView = root.getBoundingClientRect();
+    if (inView.bottom < 0 || inView.top > window.innerHeight) return;
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // ---------- Init ----------
+
+  measure();
+  applyTransforms(true);
+  window.addEventListener('resize', () => { measure(); applyTransforms(true); });
+})();

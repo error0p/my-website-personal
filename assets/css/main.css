@@ -556,26 +556,63 @@ ul, ol {
 }
 
 /* ============================================================
-   FEATURED GLASS CARD — Vision Pro inspired
+   FEATURED GALLERY — Vision Pro perspective carousel
    ============================================================ */
 
-.featured-glass {
-  padding-block: var(--sp-20);
+.featured-gallery {
+  position: relative;
+  padding-block: var(--sp-24) var(--sp-20);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-8);
+  gap: var(--sp-10);
+  overflow: hidden;
 }
 
-.featured-glass__eyebrow {
-  align-self: flex-start;
+/* Warm ambient glow behind cards — museum lighting */
+.gallery__warm-glow {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(255, 200, 140, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 80%, rgba(120, 90, 60, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
+
+[data-theme="light"] .gallery__warm-glow,
+:root:not([data-theme="dark"]) .gallery__warm-glow {
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(220, 180, 130, 0.18) 0%, transparent 55%);
+}
+
+.gallery__eyebrow {
+  align-self: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+/* Stage holds the 3D perspective */
+.gallery__stage {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 62vw, 640px);
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  user-select: none;
+  cursor: grab;
+  z-index: 1;
+}
+
+.gallery__stage:active { cursor: grabbing; }
+
+/* ============================================================
+   GLASS CARD (used by gallery cards)
+   ============================================================ */
 
 .glass-card {
   display: block;
-  width: 100%;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 22, 0.55);
   backdrop-filter: blur(28px) saturate(1.5);
   -webkit-backdrop-filter: blur(28px) saturate(1.5);
   border: 1px solid rgba(255, 255, 255, 0.10);
@@ -584,26 +621,17 @@ ul, ol {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
     0 30px 60px rgba(0, 0, 0, 0.35);
-  transition: transform var(--dur-base) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out),
-              border-color var(--dur-base) var(--ease-out);
+  text-decoration: none;
+  color: inherit;
 }
 
 [data-theme="light"] .glass-card,
 :root:not([data-theme="dark"]) .glass-card {
-  background: rgba(255, 255, 255, 0.55);
-  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.06);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 24px 48px rgba(0, 0, 0, 0.10);
-}
-
-.glass-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.10) inset,
-    0 40px 80px rgba(0, 0, 0, 0.45);
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 24px 48px rgba(0, 0, 0, 0.12);
 }
 
 .glass-card__media {
@@ -611,6 +639,25 @@ ul, ol {
   overflow: hidden;
   background: var(--bg-card);
   position: relative;
+}
+
+.glass-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.glass-card__media--healthday {
+  background: linear-gradient(145deg, #051a3d 0%, #0a3374 45%, #0c6e6e 80%, #063535 100%);
+  position: relative;
+}
+
+.glass-card__media--healthday::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 25%, rgba(20, 100, 200, 0.30) 0%, transparent 55%);
 }
 
 .glass-card__media .img-scroll-strip {
@@ -630,7 +677,7 @@ ul, ol {
   padding: var(--sp-6) var(--sp-8) var(--sp-8);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-4);
+  gap: var(--sp-3);
 }
 
 .glass-card__title-row {
@@ -655,15 +702,15 @@ ul, ol {
 
 .glass-card__quote {
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-primary);
-  font-style: normal;
+  margin-block: var(--sp-1) var(--sp-2);
 }
 
 .glass-card__meta {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-1);
+  gap: 2px;
   font-size: var(--text-xs);
   color: var(--text-tertiary);
   letter-spacing: 0.02em;
@@ -674,17 +721,168 @@ ul, ol {
   color: var(--text-secondary);
 }
 
-.featured-glass__more {
-  margin-top: var(--sp-4);
+.glass-card__expand {
+  align-self: flex-start;
+  margin-top: var(--sp-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transition: background var(--dur-fast), color var(--dur-fast);
 }
 
-@media (max-width: 640px) {
-  .glass-card {
-    border-radius: 22px;
-  }
-  .glass-card__body {
-    padding: var(--sp-5) var(--sp-6) var(--sp-6);
-  }
+.gallery__card:hover .glass-card__expand,
+.gallery__card.is-center:hover .glass-card__expand {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   GALLERY CARD POSITIONING (transformed by JS)
+   ============================================================ */
+
+.gallery__card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(280px, 56vw, 460px);
+  transform: translate3d(-50%, -50%, 0);
+  transform-style: preserve-3d;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity   480ms cubic-bezier(0.22, 1, 0.36, 1),
+              filter    480ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity, filter;
+}
+
+.gallery__card.is-dragging {
+  transition: none;
+}
+
+/* Pagination dots */
+.gallery__dots {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(140, 140, 140, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--dur-fast), transform var(--dur-fast), width var(--dur-base);
+}
+
+.gallery__dot.is-active {
+  background: var(--text-primary);
+  width: 22px;
+  border-radius: 100px;
+}
+
+/* Bottom info card with avatar + arrows */
+.gallery__info {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 100px;
+  padding: var(--sp-2) var(--sp-3);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="light"] .gallery__info,
+:root:not([data-theme="dark"]) .gallery__info {
+  background: rgba(255, 255, 255, 0.70);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.gallery__nav {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur-fast), color var(--dur-fast);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .gallery__nav,
+:root:not([data-theme="dark"]) .gallery__nav {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.gallery__nav:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--text-primary);
+}
+
+.gallery__author {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-inline: var(--sp-2);
+}
+
+.gallery__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.gallery__author-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.gallery__author-meta {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  line-height: 1.3;
+}
+
+.gallery__view-all {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .gallery__stage { height: clamp(440px, 95vw, 560px); }
+  .gallery__card  { width: clamp(260px, 78vw, 380px); }
+  .glass-card__body { padding: var(--sp-5) var(--sp-6) var(--sp-6); }
+  .glass-card { border-radius: 22px; }
+  .gallery__author { display: none; }
+  .gallery__info { padding: var(--sp-2); gap: var(--sp-3); }
 }
 
 /* ============================================================
