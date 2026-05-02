@@ -15,20 +15,13 @@
   <link rel="stylesheet" href="../assets/css/main.css">
 
   <style>
-    /* Skyverrra hero — deep navy to electric blue */
+    /* Skyverrra hero — real image */
     .cs-hero__img-inner.cs-img--skyverrra {
-      background: linear-gradient(155deg, #05061a 0%, #0d1245 40%, #1a2280 70%, #0a0d35 100%);
+      background-image: url('../assets/img/skyverrra.jpg');
+      background-size: cover;
+      background-position: center;
       position: relative;
       overflow: hidden;
-    }
-
-    .cs-hero__img-inner.cs-img--skyverrra::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 40% 55%, rgba(80, 120, 255, 0.28) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 25%, rgba(100, 140, 255, 0.14) 0%, transparent 45%);
     }
 
     /* Brand display in hero */
@@ -192,15 +185,6 @@
   <div class="cs-hero">
     <div class="cs-hero__img">
       <div class="cs-hero__img-inner cs-img--skyverrra" id="cs-parallax">
-        <div class="cs-hero__sky-display" aria-hidden="true">
-          <div class="sky-mark">
-            <div class="sky-mark__inner"></div>
-          </div>
-          <div class="sky-wordmark">
-            <span class="sky-wordmark__name">Skyverrra</span>
-            <span class="sky-wordmark__sub">Ventures</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -316,37 +300,12 @@
 
 
   <!-- =========================================================
-       PROCESS — Exploration
+       PROCESS — Moodboard
   ========================================================== -->
   <div class="container" data-animate>
     <figure class="cs-img cs-img--full">
-      <div class="sky-process">
-        <div class="sky-card sky-card--b">
-          <div class="sky-card__mark" style="border-radius:50%"></div>
-          <div class="sky-card__bars">
-            <div class="sky-bar" style="width:100%"></div>
-            <div class="sky-bar" style="width:65%"></div>
-          </div>
-          <span class="sky-card__label">Direction A — Circular</span>
-        </div>
-        <div class="sky-card sky-card--b">
-          <div class="sky-card__mark" style="border-radius:4px; transform:rotate(45deg); width:38px; height:38px; margin:3px 0 3px 3px"></div>
-          <div class="sky-card__bars">
-            <div class="sky-bar" style="width:100%"></div>
-            <div class="sky-bar" style="width:50%"></div>
-          </div>
-          <span class="sky-card__label">Direction B — Diamond</span>
-        </div>
-        <div class="sky-card sky-card--c">
-          <div class="sky-card__mark" style="border-radius:10px; background:linear-gradient(135deg,#3a5fff,#1a2280)"></div>
-          <div class="sky-card__bars">
-            <div class="sky-bar" style="width:100%; background:rgba(58,95,255,0.6)"></div>
-            <div class="sky-bar" style="width:70%; background:rgba(58,95,255,0.6)"></div>
-          </div>
-          <span class="sky-card__label">Direction C — Selected</span>
-        </div>
-      </div>
-      <figcaption>Three logo directions explored — the rounded upward-vector mark was selected for its versatility and momentum-forward reading.</figcaption>
+      <img src="../assets/img/skyverrra moodboard.jpg" alt="Skyverrra Ventures moodboard" style="width:100%; display:block; border-radius:4px;">
+      <figcaption>Moodboard — visual direction, references, and the mood established before any mark-making began.</figcaption>
     </figure>
   </div>
 
@@ -394,43 +353,22 @@
 
 
   <!-- =========================================================
-       FINAL LOCKUPS
+       COLOUR PALETTE
   ========================================================== -->
   <div class="container" data-animate>
     <figure class="cs-img cs-img--full">
-      <div class="sky-final">
-        <div class="sky-final-card" style="border-color:rgba(58,95,255,0.35)">
-          <span class="sky-final-card__label">Primary Lockup</span>
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,#3a5fff,#1a2280);flex-shrink:0"></div>
-            <div style="flex:1;display:flex;flex-direction:column;gap:5px">
-              <div style="height:7px;border-radius:3px;background:rgba(240,239,236,0.3);width:90%"></div>
-              <div style="height:4px;border-radius:2px;background:rgba(58,95,255,0.4);width:55%"></div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;margin-top:4px">
-            <div style="height:5px;border-radius:3px;background:rgba(240,239,236,0.12);width:100%"></div>
-            <div style="height:5px;border-radius:3px;background:rgba(240,239,236,0.12);width:80%"></div>
-          </div>
-        </div>
-        <div class="sky-final-card">
-          <span class="sky-final-card__label">Mark Only</span>
-          <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:12px 0">
-            <div style="width:56px;height:56px;border-radius:13px;background:linear-gradient(135deg,#3a5fff,#1a2280)"></div>
-          </div>
-        </div>
-        <div class="sky-final-card">
-          <span class="sky-final-card__label">Reversed (Light bg)</span>
-          <div style="background:rgba(240,239,236,0.06);border-radius:8px;padding:16px;display:flex;align-items:center;gap:10px">
-            <div style="width:32px;height:32px;border-radius:7px;background:#1a2280;flex-shrink:0"></div>
-            <div style="flex:1;display:flex;flex-direction:column;gap:4px">
-              <div style="height:5px;border-radius:2px;background:rgba(240,239,236,0.2);width:85%"></div>
-              <div style="height:3px;border-radius:2px;background:rgba(58,95,255,0.3);width:50%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption>Final logo system — primary lockup, standalone mark, and reversed application on light backgrounds.</figcaption>
+      <img src="../assets/img/skyverra colour palatee.jpg" alt="Skyverrra Ventures colour palette" style="width:100%; display:block; border-radius:4px;">
+      <figcaption>Colour palette — the complete system with primary, secondary, and neutral values across digital and print.</figcaption>
+    </figure>
+  </div>
+
+  <!-- =========================================================
+       TYPOGRAPHY
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <img src="../assets/img/skyverrra fonts.jpg" alt="Skyverrra Ventures typography" style="width:100%; display:block; border-radius:4px;">
+      <figcaption>Typography system — typeface selection, weight hierarchy, and usage across all brand touchpoints.</figcaption>
     </figure>
   </div>
 

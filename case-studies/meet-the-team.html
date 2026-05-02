@@ -15,20 +15,11 @@
   <link rel="stylesheet" href="../assets/css/main.css">
 
   <style>
-    /* Meet The Team hero — deep crimson campaign */
+    /* Meet The Team hero — scrolling photo strip */
     .cs-hero__img-inner.cs-img--meettheteam {
-      background: linear-gradient(155deg, #1a0505 0%, #3d0e0e 40%, #5c1a1a 70%, #2a0808 100%);
+      background: #0d0305;
       position: relative;
       overflow: hidden;
-    }
-
-    .cs-hero__img-inner.cs-img--meettheteam::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 40% 60%, rgba(180, 30, 30, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 25%, rgba(220, 50, 50, 0.12) 0%, transparent 45%);
     }
 
     /* Simulated social post grid in hero */
@@ -206,35 +197,28 @@
   <div class="cs-hero">
     <div class="cs-hero__img">
       <div class="cs-hero__img-inner cs-img--meettheteam" id="cs-parallax">
-        <div class="cs-hero__post-grid" aria-hidden="true">
-          <div class="hero-post">
-            <div class="hero-post__photo"></div>
-            <div class="hero-post__text">
-              <div class="hero-post__bar"></div>
-              <div class="hero-post__bar" style="width:60%"></div>
-            </div>
-          </div>
-          <div class="hero-post hero-post--featured">
-            <div class="hero-post__photo"></div>
-            <div class="hero-post__text">
-              <div class="hero-post__bar"></div>
-              <div class="hero-post__bar" style="width:75%"></div>
-            </div>
-          </div>
-          <div class="hero-post">
-            <div class="hero-post__photo"></div>
-            <div class="hero-post__text">
-              <div class="hero-post__bar"></div>
-              <div class="hero-post__bar" style="width:50%"></div>
-            </div>
-          </div>
-          <div class="hero-post" style="opacity:0.6">
-            <div class="hero-post__photo"></div>
-            <div class="hero-post__text">
-              <div class="hero-post__bar"></div>
-              <div class="hero-post__bar" style="width:65%"></div>
-            </div>
-          </div>
+        <div class="img-scroll-strip" aria-hidden="true" style="animation-duration:32s;">
+          <img src="../assets/img/meet the team 1.png" alt="">
+          <img src="../assets/img/meet the team 2.png" alt="">
+          <img src="../assets/img/meet the team 3.png" alt="">
+          <img src="../assets/img/meet the team 4.png" alt="">
+          <img src="../assets/img/meet the team 5.png" alt="">
+          <img src="../assets/img/meet the team 6.png" alt="">
+          <img src="../assets/img/meet the team 7.png" alt="">
+          <img src="../assets/img/meet the team 8.png" alt="">
+          <img src="../assets/img/meet the team 9.png" alt="">
+          <img src="../assets/img/meet the team 10.png" alt="">
+          <!-- Duplicate for seamless loop -->
+          <img src="../assets/img/meet the team 1.png" alt="">
+          <img src="../assets/img/meet the team 2.png" alt="">
+          <img src="../assets/img/meet the team 3.png" alt="">
+          <img src="../assets/img/meet the team 4.png" alt="">
+          <img src="../assets/img/meet the team 5.png" alt="">
+          <img src="../assets/img/meet the team 6.png" alt="">
+          <img src="../assets/img/meet the team 7.png" alt="">
+          <img src="../assets/img/meet the team 8.png" alt="">
+          <img src="../assets/img/meet the team 9.png" alt="">
+          <img src="../assets/img/meet the team 10.png" alt="">
         </div>
       </div>
     </div>
@@ -345,48 +329,36 @@
 
 
   <!-- =========================================================
-       CAMPAIGN SERIES
+       CAMPAIGN SERIES — All 10 posts, scrolling
   ========================================================== -->
   <div class="container" data-animate>
     <figure class="cs-img cs-img--full">
-      <div class="campaign-grid">
-        <div class="campaign-post campaign-post--1">
-          <div class="campaign-post__img"></div>
-          <div class="campaign-post__footer">
-            <div class="campaign-post__label"></div>
-            <div class="campaign-post__sub"></div>
-          </div>
-        </div>
-        <div class="campaign-post campaign-post--2">
-          <div class="campaign-post__img"></div>
-          <div class="campaign-post__footer">
-            <div class="campaign-post__label"></div>
-            <div class="campaign-post__sub"></div>
-          </div>
-        </div>
-        <div class="campaign-post campaign-post--3">
-          <div class="campaign-post__img"></div>
-          <div class="campaign-post__footer">
-            <div class="campaign-post__label"></div>
-            <div class="campaign-post__sub"></div>
-          </div>
-        </div>
-        <div class="campaign-post campaign-post--4">
-          <div class="campaign-post__img"></div>
-          <div class="campaign-post__footer">
-            <div class="campaign-post__label"></div>
-            <div class="campaign-post__sub"></div>
-          </div>
-        </div>
-        <div class="campaign-post campaign-post--5">
-          <div class="campaign-post__img"></div>
-          <div class="campaign-post__footer">
-            <div class="campaign-post__label"></div>
-            <div class="campaign-post__sub"></div>
-          </div>
+      <div class="cs-scroll-gallery">
+        <div class="img-scroll-strip">
+          <img src="../assets/img/meet the team 1.png" alt="Meet The Team post 1">
+          <img src="../assets/img/meet the team 2.png" alt="Meet The Team post 2">
+          <img src="../assets/img/meet the team 3.png" alt="Meet The Team post 3">
+          <img src="../assets/img/meet the team 4.png" alt="Meet The Team post 4">
+          <img src="../assets/img/meet the team 5.png" alt="Meet The Team post 5">
+          <img src="../assets/img/meet the team 6.png" alt="Meet The Team post 6">
+          <img src="../assets/img/meet the team 7.png" alt="Meet The Team post 7">
+          <img src="../assets/img/meet the team 8.png" alt="Meet The Team post 8">
+          <img src="../assets/img/meet the team 9.png" alt="Meet The Team post 9">
+          <img src="../assets/img/meet the team 10.png" alt="Meet The Team post 10">
+          <!-- Duplicate for seamless loop -->
+          <img src="../assets/img/meet the team 1.png" alt="">
+          <img src="../assets/img/meet the team 2.png" alt="">
+          <img src="../assets/img/meet the team 3.png" alt="">
+          <img src="../assets/img/meet the team 4.png" alt="">
+          <img src="../assets/img/meet the team 5.png" alt="">
+          <img src="../assets/img/meet the team 6.png" alt="">
+          <img src="../assets/img/meet the team 7.png" alt="">
+          <img src="../assets/img/meet the team 8.png" alt="">
+          <img src="../assets/img/meet the team 9.png" alt="">
+          <img src="../assets/img/meet the team 10.png" alt="">
         </div>
       </div>
-      <figcaption>Five posts from the ongoing series — each featuring a different team member, all sharing the same visual system.</figcaption>
+      <figcaption>All 10 posts from the ongoing series — each featuring a different team member across departments. Hover to pause.</figcaption>
     </figure>
   </div>
 
