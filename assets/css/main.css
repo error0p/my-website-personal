@@ -618,10 +618,15 @@ ul, ol {
 .card__img--arujiva     { background: linear-gradient(145deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%); }
 .card__img--skyverrra   {
   background-image: url('../img/skyverrra.jpg');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-color: #05061a;
+}
+
+/* Make the Skyverrra card use the banner's natural aspect ratio,
+   so the full image fills the card edge-to-edge — same proportions
+   as the case-study hero banner (1920 × 571). */
+.card__img-wrap:has(.card__img--skyverrra) {
+  aspect-ratio: 1920 / 571;
 }
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
