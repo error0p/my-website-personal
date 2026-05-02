@@ -674,16 +674,21 @@ ul, ol {
 
 .img-scroll-strip {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-direction: row;
+  height: 100%;
+  width: max-content;
   will-change: transform;
-  animation: imgScrollUp 28s linear infinite;
+  /* 20s total: 10 images × 2s each (1.4s dwell + 0.5s scroll + 0.1s stop) */
+  animation: imgScrollLeft 20s linear infinite;
 }
 
 .img-scroll-strip img {
-  width: 100%;
-  display: block;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   flex-shrink: 0;
+  display: block;
 }
 
 /* Pause on hover */
@@ -692,9 +697,45 @@ ul, ol {
   animation-play-state: paused;
 }
 
-@keyframes imgScrollUp {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+/*
+   Right-to-left scroll with 0.1s "stop" at each image.
+   Per 10% block (= 2s of 20s):
+     0–7%   (1.4s) → dwell on current image
+     7–9.5% (0.5s) → ease-in-out scroll to next image
+     9.5–10%(0.1s) → linear pause / "stop" at new image
+*/
+@keyframes imgScrollLeft {
+  0%     { transform: translateX(0); animation-timing-function: linear; }
+  7%     { transform: translateX(0); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  9.5%   { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: linear; }
+  10%    { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: linear; }
+  17%    { transform: translateX(calc(-100% / 20 * 1)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  19.5%  { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: linear; }
+  20%    { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: linear; }
+  27%    { transform: translateX(calc(-100% / 20 * 2)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  29.5%  { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: linear; }
+  30%    { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: linear; }
+  37%    { transform: translateX(calc(-100% / 20 * 3)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  39.5%  { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: linear; }
+  40%    { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: linear; }
+  47%    { transform: translateX(calc(-100% / 20 * 4)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  49.5%  { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: linear; }
+  50%    { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: linear; }
+  57%    { transform: translateX(calc(-100% / 20 * 5)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  59.5%  { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: linear; }
+  60%    { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: linear; }
+  67%    { transform: translateX(calc(-100% / 20 * 6)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  69.5%  { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: linear; }
+  70%    { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: linear; }
+  77%    { transform: translateX(calc(-100% / 20 * 7)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  79.5%  { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: linear; }
+  80%    { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: linear; }
+  87%    { transform: translateX(calc(-100% / 20 * 8)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  89.5%  { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: linear; }
+  90%    { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: linear; }
+  97%    { transform: translateX(calc(-100% / 20 * 9)); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+  99.5%  { transform: translateX(calc(-100% / 20 * 10)); animation-timing-function: linear; }
+  100%   { transform: translateX(calc(-100% / 20 * 10)); }
 }
 
 /* Case study large scroll gallery */
@@ -703,11 +744,13 @@ ul, ol {
   border-radius: 4px;
   position: relative;
   width: 100%;
-  max-height: 640px;
+  height: clamp(360px, 50vw, 560px);
+  background: var(--bg-card);
 }
 
+/* Slower cadence for the larger gallery so each image lingers a bit longer */
 .cs-scroll-gallery .img-scroll-strip {
-  animation-duration: 40s;
+  animation-duration: 30s;
 }
 
 .cs-scroll-gallery .img-scroll-strip img {
