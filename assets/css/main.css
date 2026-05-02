@@ -616,6 +616,8 @@ ul, ol {
 
 /* Real project gradients */
 .card__img--arujiva     { background: linear-gradient(145deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%); }
+.card__img--skyverrra   { background: linear-gradient(145deg, #05061a 0%, #0d1245 45%, #1a2280 70%, #0a0d35 100%); }
+.card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: linear-gradient(145deg, #1a0505 0%, #3d0e0e 40%, #5c1a1a 70%, #2a0808 100%); }
 .card__img--healthday   { background: linear-gradient(145deg, #051a3d 0%, #0a3374 45%, #0c6e6e 80%, #063535 100%); }
 .card__img--precast     { background: linear-gradient(145deg, #111210 0%, #252723 45%, #1e201c 70%, #0e0f0d 100%); }
@@ -639,6 +641,8 @@ ul, ol {
 .card__img--cascade::before,
 .card__img--helio::before,
 .card__img--arujiva::before,
+.card__img--skyverrra::before,
+.card__img--himalayan::before,
 .card__img--meettheteam::before,
 .card__img--healthday::before,
 .card__img--precast::before,
@@ -657,6 +661,8 @@ ul, ol {
 .card__img--cascade::before     { background: radial-gradient(ellipse at 75% 30%, rgba(60, 120, 220, 0.16) 0%, transparent 60%); }
 .card__img--helio::before       { background: radial-gradient(ellipse at 50% 40%, rgba(220, 150, 40, 0.18) 0%, transparent 60%); }
 .card__img--arujiva::before     { background: radial-gradient(ellipse at 65% 30%, rgba(20, 174, 199, 0.22) 0%, transparent 60%); }
+.card__img--skyverrra::before   { background: radial-gradient(ellipse at 60% 30%, rgba(80, 120, 255, 0.25) 0%, transparent 60%); }
+.card__img--himalayan::before   { background: radial-gradient(ellipse at 40% 55%, rgba(60, 180, 80, 0.20) 0%, transparent 60%); }
 .card__img--meettheteam::before { background: radial-gradient(ellipse at 35% 65%, rgba(180, 40, 40, 0.18) 0%, transparent 55%); }
 .card__img--healthday::before   { background: radial-gradient(ellipse at 60% 25%, rgba(20, 100, 200, 0.20) 0%, transparent 55%); }
 .card__img--precast::before     { background: radial-gradient(ellipse at 70% 40%, rgba(140, 150, 130, 0.12) 0%, transparent 60%); }

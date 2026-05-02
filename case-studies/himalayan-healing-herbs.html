@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himalayan Healing Herbs — Brand Identity · Satyam Pariyar</title>
+  <meta name="description" content="Brand identity for Himalayan Healing Herbs — building a natural, grounded visual identity for an herbal wellness brand rooted in the Himalayas.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <style>
+    /* Himalayan hero — deep forest green to warm earth */
+    .cs-hero__img-inner.cs-img--himalayan-cs {
+      background: linear-gradient(155deg, #071a08 0%, #0e3a10 40%, #1a5c1e 70%, #0a2e0b 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-hero__img-inner.cs-img--himalayan-cs::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 35% 55%, rgba(60, 180, 80, 0.20) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 25%, rgba(80, 160, 60, 0.12) 0%, transparent 45%);
+    }
+
+    /* Brand display in hero */
+    .cs-hero__herb-display {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .herb-mark {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #2a7a2e, #0e3a10);
+      border: 1px solid rgba(80,180,80,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .herb-mark__leaf {
+      width: 36px;
+      height: 44px;
+      background: rgba(180,240,160,0.85);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+
+    .herb-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .herb-wordmark__name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #F0EFEC;
+      text-transform: uppercase;
+    }
+
+    .herb-wordmark__sub {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(120,220,100,0.75);
+      text-transform: uppercase;
+    }
+
+    /* Color system preview */
+    .herb-colors {
+      display: flex;
+      gap: 10px;
+    }
+
+    .herb-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    /* Process exploration */
+    .herb-process {
+      background: #060f06;
+      aspect-ratio: 16 / 7;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 32px;
+    }
+
+    .herb-card {
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .herb-card--a { background: rgba(60,180,80,0.06); border: 1px solid rgba(60,180,80,0.15); }
+    .herb-card--b { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); }
+    .herb-card--c { background: rgba(60,180,80,0.10); border: 1px solid rgba(60,180,80,0.25); }
+
+    .herb-card__mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2a7a2e, #0e3a10);
+    }
+
+    .herb-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(80,180,80,0.3);
+    }
+
+    .herb-card__label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(80,200,80,0.6);
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* Final packaging */
+    .herb-final {
+      background: linear-gradient(135deg, #060f06 0%, #0a2a0b 60%, #071a08 100%);
+      aspect-ratio: 16 / 7;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      padding: 40px;
+      align-items: center;
+    }
+
+    .herb-final-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(60,180,80,0.2);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .herb-final-card__label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(80,200,80,0.6);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="../work.html" class="nav__link is-active">Work</a>
+        <a href="../about.html" class="nav__link">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+  <div class="cs-hero">
+    <div class="cs-hero__img">
+      <div class="cs-hero__img-inner cs-img--himalayan-cs" id="cs-parallax">
+        <div class="cs-hero__herb-display" aria-hidden="true">
+          <div class="herb-mark">
+            <div class="herb-mark__leaf"></div>
+          </div>
+          <div class="herb-wordmark">
+            <span class="herb-wordmark__name">Himalayan Healing Herbs</span>
+            <span class="herb-wordmark__sub">Brand Identity</span>
+          </div>
+          <div class="herb-colors">
+            <div class="herb-swatch" style="background:#2a7a2e"></div>
+            <div class="herb-swatch" style="background:#4aaa4e"></div>
+            <div class="herb-swatch" style="background:#8a5a2e"></div>
+            <div class="herb-swatch" style="background:#F5F0E8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       INTRO
+  ========================================================== -->
+  <div class="cs-intro container">
+    <div class="cs-intro__inner">
+      <div>
+        <p class="t-label" style="margin-bottom: var(--sp-5)" data-animate>Brand Identity · 2024</p>
+        <h1 class="cs-intro__heading" data-animate data-delay="1">
+          Himalayan Healing Herbs
+        </h1>
+        <p class="cs-intro__sub" data-animate data-delay="2">
+          Brand identity for an herbal wellness brand rooted in the Himalayas — building a natural, trustworthy visual system that communicates purity, origin, and the wisdom of traditional healing practices.
+        </p>
+      </div>
+
+      <aside class="cs-meta" data-animate data-delay="3">
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Client</p>
+          <p class="cs-meta__value">Himalayan Healing Herbs (Freelance)</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Role</p>
+          <p class="cs-meta__value">Brand Designer</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Deliverables</p>
+          <p class="cs-meta__value">Logo Design · Color System · Typography · Brand Guidelines</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Year</p>
+          <p class="cs-meta__value">2024</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       SECTION 1 — THE BRIEF
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>The Brief</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        Nature as the identity. The Himalayas as the story.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Himalayan Healing Herbs needed an identity that communicated authenticity before the customer read a single word. In the wellness and herbal space, visual trust is everything — consumers are skeptical, and the brand had to feel as clean and natural as its products.
+        </p>
+        <p>
+          The brief centered on two qualities: natural and credible. Natural through color (forest greens, earth tones, warm creams) and form (organic mark, soft letterforms). Credible through consistency, restraint, and a system that could scale from packaging to social media without losing integrity.
+        </p>
+        <p>
+          The geographic origin — the Himalayas — is both a quality signal and a story. The brand needed to wear this origin proudly without becoming a caricature of "mountain herbal brand."
+        </p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap: var(--sp-3); margin-top: var(--sp-12)">
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="1">
+        <div style="width:100%; height:48px; border-radius:4px; background:#2a7a2e; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">PRIMARY</p>
+        <p style="font-size:var(--text-sm); font-weight:600">Forest Green</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Nature · Trust</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="2">
+        <div style="width:100%; height:48px; border-radius:4px; background:#4aaa4e; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">ACCENT</p>
+        <p style="font-size:var(--text-sm); font-weight:600">Leaf Green</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Growth · Vitality</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="3">
+        <div style="width:100%; height:48px; border-radius:4px; background:#8a5a2e; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">EARTH</p>
+        <p style="font-size:var(--text-sm); font-weight:600">Warm Bark</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Warmth · Origin</p>
+      </div>
+      <div style="background: var(--bg-card); border-radius:4px; padding: var(--sp-8)" data-animate data-delay="4">
+        <div style="width:100%; height:48px; border-radius:4px; background:#F5F0E8; margin-bottom:var(--sp-4)"></div>
+        <p style="font-size:var(--text-xs); font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:2px">BASE</p>
+        <p style="font-size:var(--text-sm); font-weight:600">Natural Cream</p>
+        <p style="font-size:var(--text-xs); color:var(--text-tertiary)">Purity · Clarity</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 2 — APPROACH
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Approach</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        Organic form, precise system.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The logo mark draws from the leaf — the most immediate visual shorthand for herbal and botanical products. But the execution avoids the overly literal: the mark is abstracted into a clean geometric form that reads as "natural" through shape language rather than illustration.
+        </p>
+        <p>
+          The color palette was developed around the Himalayan landscape — deep forest greens as the primary, warm earth tones as supporting accents, and a natural cream base that works beautifully on both digital screens and printed packaging.
+        </p>
+        <p>
+          Typography was kept humanist and warm — avoiding the clinical precision of geometric sans-serifs common in wellness brands, which can undercut the "natural" message. The chosen type has approachable letterforms that reinforce the brand's organic character.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       PROCESS
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <div class="herb-process">
+        <div class="herb-card herb-card--b">
+          <div class="herb-card__mark" style="border-radius:50%"></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="herb-bar" style="width:100%"></div>
+            <div class="herb-bar" style="width:60%"></div>
+          </div>
+          <span class="herb-card__label">Direction A — Circle</span>
+        </div>
+        <div class="herb-card herb-card--b">
+          <div class="herb-card__mark" style="border-radius:4px 4px 4px 40%; transform:rotate(10deg)"></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="herb-bar" style="width:100%"></div>
+            <div class="herb-bar" style="width:70%"></div>
+          </div>
+          <span class="herb-card__label">Direction B — Organic</span>
+        </div>
+        <div class="herb-card herb-card--c">
+          <div class="herb-card__mark" style="border-radius:50% 50% 50% 0; transform:rotate(-45deg); background:linear-gradient(135deg,#4aaa4e,#2a7a2e); width:40px;height:40px;margin:2px"></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="herb-bar" style="width:100%;background:rgba(80,180,80,0.5)"></div>
+            <div class="herb-bar" style="width:65%;background:rgba(80,180,80,0.5)"></div>
+          </div>
+          <span class="herb-card__label">Direction C — Selected</span>
+        </div>
+      </div>
+      <figcaption>Three mark directions — the leaf-form abstraction was selected for its natural readability and scalability across brand touchpoints.</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 3 — KEY DECISIONS
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Key Decisions</p>
+
+    <div class="cs-two-col">
+      <div data-animate data-delay="1">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 01</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Earth tones, not bright greens.</h3>
+        <p class="t-body">
+          Bright greens signal "fresh" but can also read as synthetic or clinical. The deeper forest green palette communicates traditional, trusted, and grounded — which is the right register for an herbal healing brand. It also differentiates from mass-market wellness competitors who default to lime and mint.
+        </p>
+      </div>
+
+      <div data-animate data-delay="2">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 02</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Cream base over white.</h3>
+        <p class="t-body">
+          Pure white reads as pharmaceutical. A warm natural cream base softens the brand and reinforces the "natural" positioning across every application — packaging, stationery, and digital backgrounds. A small detail with significant tonal effect.
+        </p>
+      </div>
+
+      <div data-animate data-delay="3">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 03</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Abstracted mark, not illustrated.</h3>
+        <p class="t-body">
+          Illustrated herb marks feel craft-market and don't scale well to digital. The abstracted geometric leaf mark is clean at any size, works as an app icon or stamp, and carries the "natural" signal through shape language alone — without the production and reproduction limitations of illustration.
+        </p>
+      </div>
+
+      <div data-animate data-delay="4">
+        <p style="font-size: var(--text-xs); font-weight:700; letter-spacing:0.08em; color: var(--text-tertiary); margin-bottom:var(--sp-3)">Decision 04</p>
+        <h3 style="font-size: var(--text-xl); font-weight:600; letter-spacing:-0.02em; margin-bottom:var(--sp-4)">Packaging-first thinking.</h3>
+        <p class="t-body">
+          The identity was designed with product packaging as the primary application — not social media or a website. This meant every element needed to work in print, at small sizes on labels, and across different substrate colors. Digital adaptation came second.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       FINAL SYSTEM
+  ========================================================== -->
+  <div class="container" data-animate>
+    <figure class="cs-img cs-img--full">
+      <div class="herb-final">
+        <div class="herb-final-card" style="border-color:rgba(60,180,80,0.3)">
+          <span class="herb-final-card__label">Primary Logo</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,#4aaa4e,#2a7a2e);flex-shrink:0"></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px;margin-left:8px">
+              <div style="height:7px;border-radius:3px;background:rgba(240,239,236,0.3);width:95%"></div>
+              <div style="height:4px;border-radius:2px;background:rgba(80,180,80,0.35);width:60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="herb-final-card">
+          <span class="herb-final-card__label">On Cream</span>
+          <div style="background:#F5F0E8;border-radius:8px;padding:16px;display:flex;align-items:center;gap:10px">
+            <div style="width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#2a7a2e;flex-shrink:0"></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px;margin-left:6px">
+              <div style="height:5px;border-radius:2px;background:#2a7a2e;opacity:0.5;width:80%"></div>
+              <div style="height:3px;border-radius:2px;background:#8a5a2e;opacity:0.4;width:50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="herb-final-card">
+          <span class="herb-final-card__label">Color System</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div style="width:28px;height:28px;border-radius:50%;background:#2a7a2e"></div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#4aaa4e"></div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#8a5a2e"></div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#F5F0E8;border:1px solid rgba(255,255,255,0.1)"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;margin-top:4px">
+            <div style="height:5px;border-radius:3px;background:rgba(240,239,236,0.12);width:100%"></div>
+            <div style="height:5px;border-radius:3px;background:rgba(240,239,236,0.12);width:75%"></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Final brand system — logo on dark, reversed application on cream, and full color palette.</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- =========================================================
+       SECTION 4 — OUTCOME
+  ========================================================== -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Outcome</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A brand that looks as good as it heals.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The final deliverables covered the complete brand identity system: primary logo, standalone mark, reversed and alternate lockups, a 4-color palette with print and digital values, typographic guidelines, and a focused brand guide.
+        </p>
+        <p>
+          The identity was designed to be packaging-ready from the start — working on kraft paper labels, glass jar stickers, and printed outer boxes, while also translating cleanly to Instagram and product listing platforms.
+        </p>
+        <p>
+          The project demonstrates the design principle at the core of all my brand work: restraint produces credibility. The Himalayan Healing Herbs identity earns trust through what it doesn't say as much as what it does.
+        </p>
+      </div>
+    </div>
+
+    <div class="outcome-grid" style="margin-top: var(--sp-12)">
+      <div data-animate data-delay="1">
+        <p class="outcome-stat__number">4</p>
+        <p class="outcome-stat__label">Colors — forest green, leaf, bark, cream</p>
+      </div>
+      <div data-animate data-delay="2">
+        <p class="outcome-stat__number">Packaging</p>
+        <p class="outcome-stat__label">Primary application — designed print-first</p>
+      </div>
+      <div data-animate data-delay="3">
+        <p class="outcome-stat__number">100%</p>
+        <p class="outcome-stat__label">Freelance — brief to full system delivery</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- =========================================================
+       NEXT PROJECT NAV
+  ========================================================== -->
+  <div class="cs-nav container">
+    <div class="cs-nav__inner">
+      <a href="skyverrra.html" class="cs-nav__link">
+        <span class="cs-nav__dir">← Previous Project</span>
+        <span class="cs-nav__title">Skyverrra Ventures</span>
+      </a>
+      <a href="meet-the-team.html" class="cs-nav__link cs-nav__link--next">
+        <span class="cs-nav__dir">Next Project →</span>
+        <span class="cs-nav__title">Meet The Team — Patil Group</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
