@@ -551,13 +551,8 @@ ul, ol {
 /* Featured grid */
 .featured-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-3);
-}
-
-.featured-grid .project-card:first-child {
-  grid-column: 1 / -1;
 }
 
 /* ============================================================
@@ -617,18 +612,9 @@ ul, ol {
 /* Real project gradients */
 .card__img--arujiva     { background: linear-gradient(145deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%); }
 .card__img--skyverrra   {
-  background-image: url('../img/skyverrra.jpg');
+  background-image: url('../img/skyverrra%20moodboard.jpg');
   background-size: cover;
   background-position: center;
-}
-
-/* Skyverrra card sized to 414 × 414.63 — capped square thumbnail
-   that doesn't dominate the viewport on mobile. */
-.card__img-wrap:has(.card__img--skyverrra) {
-  aspect-ratio: 414 / 414.63;
-  max-width: 414px;
-  max-height: 414.63px;
-  margin-inline: auto;
 }
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
@@ -1450,10 +1436,6 @@ ul, ol {
 
   .featured-grid {
     grid-template-columns: 1fr;
-  }
-
-  .featured-grid .project-card:first-child {
-    grid-column: 1;
   }
 
   .project-grid {
