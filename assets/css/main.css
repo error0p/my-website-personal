@@ -622,9 +622,13 @@ ul, ol {
   background-position: center;
 }
 
-/* Skyverrra card sized to 414 × 414.63 — square thumbnail. */
+/* Skyverrra card sized to 414 × 414.63 — capped square thumbnail
+   that doesn't dominate the viewport on mobile. */
 .card__img-wrap:has(.card__img--skyverrra) {
   aspect-ratio: 414 / 414.63;
+  max-width: 414px;
+  max-height: 414.63px;
+  margin-inline: auto;
 }
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
