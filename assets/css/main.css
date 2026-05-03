@@ -80,7 +80,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: ultra smooth;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -363,6 +363,37 @@ ul, ol {
   gap: var(--sp-8);
   padding-top: calc(var(--nav-h) + var(--sp-8));
   padding-bottom: var(--sp-8);
+}
+
+/* Centered hero variant — used on the parallax/bg hero */
+.hero--bg .hero__content {
+  align-items: center;
+  text-align: center;
+}
+
+.hero--bg .hero__meta {
+  justify-content: center;
+}
+
+.hero--bg .hero__heading {
+  width: 100%;
+}
+
+.hero--bg .t-hero {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.hero--bg .hero__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero--bg .hero__tagline {
+  text-align: left;
 }
 
 /* ============================================================
