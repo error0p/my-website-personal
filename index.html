@@ -70,129 +70,110 @@
 
 
   <!-- =========================================================
-       FEATURED — perspective carousel (Vision Pro gallery style)
+       FEATURED — stack cards on scroll
   ========================================================== -->
-  <section class="featured-gallery container" id="gallery">
-    <div class="gallery__warm-glow" aria-hidden="true"></div>
+  <section class="featured-stack container" id="featured">
+    <div class="featured-stack__head" data-animate>
+      <p class="t-label">Selected Work</p>
+      <a href="work.html" class="link-arrow">
+        View all projects
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
 
-    <p class="t-label gallery__eyebrow" data-animate>Selected Work</p>
-
-    <div class="gallery__stage" data-animate data-delay="1">
+    <ul class="stack-cards js-stack-cards">
 
       <!-- Card 1: Skyverrra Ventures -->
-      <a href="case-studies/skyverrra.html" class="gallery__card glass-card" data-index="0">
-        <div class="glass-card__media">
-          <img src="assets/img/skyverrra%20moodboard.jpg" alt="Skyverrra moodboard" class="glass-card__img">
-        </div>
-        <div class="glass-card__body">
-          <div class="glass-card__title-row">
-            <h3 class="glass-card__title">Skyverrra Ventures</h3>
-            <span class="glass-card__date">2024</span>
+      <li class="stack-cards__item js-stack-cards__item">
+        <a href="case-studies/skyverrra.html" class="glass-card">
+          <div class="glass-card__media">
+            <img src="assets/img/skyverrra%20moodboard.jpg" alt="Skyverrra moodboard" class="glass-card__img">
           </div>
-          <p class="glass-card__quote">
-            "A brand built for ambition — momentum and altitude captured in a single mark."
-          </p>
-          <div class="glass-card__meta">
-            <span><b>Type:</b> Brand Identity · Logo System</span>
-            <span><b>Role:</b> Brand Designer · Freelance</span>
+          <div class="glass-card__body">
+            <div class="glass-card__title-row">
+              <h3 class="glass-card__title">Skyverrra Ventures</h3>
+              <span class="glass-card__date">2024</span>
+            </div>
+            <p class="glass-card__quote">
+              "A brand built for ambition — momentum and altitude captured in a single mark."
+            </p>
+            <div class="glass-card__meta">
+              <span><b>Type:</b> Brand Identity · Logo System</span>
+              <span><b>Role:</b> Brand Designer · Freelance</span>
+            </div>
+            <span class="glass-card__expand">View Case Study →</span>
           </div>
-          <span class="glass-card__expand">View Case Study →</span>
-        </div>
-      </a>
+        </a>
+      </li>
 
-      <!-- Card 2: Meet The Team (centered by default) -->
-      <a href="case-studies/meet-the-team.html" class="gallery__card glass-card" data-index="1">
-        <div class="glass-card__media">
-          <div class="img-scroll-strip" aria-hidden="true">
-            <img src="assets/img/meet the team 1.png" alt="">
-            <img src="assets/img/meet the team 2.png" alt="">
-            <img src="assets/img/meet the team 3.png" alt="">
-            <img src="assets/img/meet the team 4.png" alt="">
-            <img src="assets/img/meet the team 5.png" alt="">
-            <img src="assets/img/meet the team 6.png" alt="">
-            <img src="assets/img/meet the team 7.png" alt="">
-            <img src="assets/img/meet the team 8.png" alt="">
-            <img src="assets/img/meet the team 9.png" alt="">
-            <img src="assets/img/meet the team 10.png" alt="">
-            <img src="assets/img/meet the team 1.png" alt="">
-            <img src="assets/img/meet the team 2.png" alt="">
-            <img src="assets/img/meet the team 3.png" alt="">
-            <img src="assets/img/meet the team 4.png" alt="">
-            <img src="assets/img/meet the team 5.png" alt="">
-            <img src="assets/img/meet the team 6.png" alt="">
-            <img src="assets/img/meet the team 7.png" alt="">
-            <img src="assets/img/meet the team 8.png" alt="">
-            <img src="assets/img/meet the team 9.png" alt="">
-            <img src="assets/img/meet the team 10.png" alt="">
+      <!-- Card 2: Meet The Team -->
+      <li class="stack-cards__item js-stack-cards__item">
+        <a href="case-studies/meet-the-team.html" class="glass-card">
+          <div class="glass-card__media">
+            <div class="img-scroll-strip" aria-hidden="true">
+              <img src="assets/img/meet the team 1.png" alt="">
+              <img src="assets/img/meet the team 2.png" alt="">
+              <img src="assets/img/meet the team 3.png" alt="">
+              <img src="assets/img/meet the team 4.png" alt="">
+              <img src="assets/img/meet the team 5.png" alt="">
+              <img src="assets/img/meet the team 6.png" alt="">
+              <img src="assets/img/meet the team 7.png" alt="">
+              <img src="assets/img/meet the team 8.png" alt="">
+              <img src="assets/img/meet the team 9.png" alt="">
+              <img src="assets/img/meet the team 10.png" alt="">
+              <img src="assets/img/meet the team 1.png" alt="">
+              <img src="assets/img/meet the team 2.png" alt="">
+              <img src="assets/img/meet the team 3.png" alt="">
+              <img src="assets/img/meet the team 4.png" alt="">
+              <img src="assets/img/meet the team 5.png" alt="">
+              <img src="assets/img/meet the team 6.png" alt="">
+              <img src="assets/img/meet the team 7.png" alt="">
+              <img src="assets/img/meet the team 8.png" alt="">
+              <img src="assets/img/meet the team 9.png" alt="">
+              <img src="assets/img/meet the team 10.png" alt="">
+            </div>
           </div>
-        </div>
-        <div class="glass-card__body">
-          <div class="glass-card__title-row">
-            <h3 class="glass-card__title">Meet The Team</h3>
-            <span class="glass-card__date">2025 — Present</span>
+          <div class="glass-card__body">
+            <div class="glass-card__title-row">
+              <h3 class="glass-card__title">Meet The Team</h3>
+              <span class="glass-card__date">2025 — Present</span>
+            </div>
+            <p class="glass-card__quote">
+              "Putting faces to a 5,000-person organization — one consistent visual story at a time."
+            </p>
+            <div class="glass-card__meta">
+              <span><b>Type:</b> Employer Branding · Campaign</span>
+              <span><b>Scope:</b> 10+ posts, ongoing</span>
+            </div>
+            <span class="glass-card__expand">View Case Study →</span>
           </div>
-          <p class="glass-card__quote">
-            "Putting faces to a 5,000-person organization — one consistent visual story at a time."
-          </p>
-          <div class="glass-card__meta">
-            <span><b>Type:</b> Employer Branding · Campaign</span>
-            <span><b>Scope:</b> 10+ posts, ongoing</span>
-          </div>
-          <span class="glass-card__expand">View Case Study →</span>
-        </div>
-      </a>
+        </a>
+      </li>
 
       <!-- Card 3: World Health Day -->
-      <a href="work.html" class="gallery__card glass-card" data-index="2">
-        <div class="glass-card__media glass-card__media--healthday"></div>
-        <div class="glass-card__body">
-          <div class="glass-card__title-row">
-            <h3 class="glass-card__title">World Health Day</h3>
-            <span class="glass-card__date">2026</span>
+      <li class="stack-cards__item js-stack-cards__item">
+        <a href="work.html" class="glass-card">
+          <div class="glass-card__media glass-card__media--healthday"></div>
+          <div class="glass-card__body">
+            <div class="glass-card__title-row">
+              <h3 class="glass-card__title">World Health Day</h3>
+              <span class="glass-card__date">2026</span>
+            </div>
+            <p class="glass-card__quote">
+              "Health awareness through bold typography, gradient, and visual storytelling."
+            </p>
+            <div class="glass-card__meta">
+              <span><b>Type:</b> Campaign · Awareness</span>
+              <span><b>Client:</b> Patil Group</span>
+            </div>
+            <span class="glass-card__expand">View Case Study →</span>
           </div>
-          <p class="glass-card__quote">
-            "Health awareness through bold typography, gradient, and visual storytelling."
-          </p>
-          <div class="glass-card__meta">
-            <span><b>Type:</b> Campaign · Awareness</span>
-            <span><b>Client:</b> Patil Group</span>
-          </div>
-          <span class="glass-card__expand">View Case Study →</span>
-        </div>
-      </a>
+        </a>
+      </li>
 
-    </div>
-
-    <!-- Pagination dots -->
-    <div class="gallery__dots" role="tablist" aria-label="Project carousel">
-      <button class="gallery__dot is-active" aria-label="Skyverrra Ventures" data-index="0"></button>
-      <button class="gallery__dot" aria-label="Meet The Team" data-index="1"></button>
-      <button class="gallery__dot" aria-label="World Health Day" data-index="2"></button>
-    </div>
-
-    <!-- Bottom info card with avatar + nav arrows -->
-    <div class="gallery__info" data-animate data-delay="2">
-      <button class="gallery__nav gallery__nav--prev" aria-label="Previous project">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="gallery__author">
-        <div class="gallery__avatar" aria-hidden="true">SP</div>
-        <div>
-          <p class="gallery__author-name">Satyam Pariyar</p>
-          <p class="gallery__author-meta">Brand &amp; Visual Designer · Hyderabad</p>
-        </div>
-      </div>
-      <button class="gallery__nav gallery__nav--next" aria-label="Next project">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <a href="work.html" class="link-arrow gallery__view-all" data-animate data-delay="3">
-      View all projects
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+    </ul>
   </section>
 
 
