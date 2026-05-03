@@ -234,6 +234,73 @@
 
 
 /* ============================================================
+   TAGLINE SCROLL-FILL — GSAP ScrollTrigger + SplitText
+   Muted hero tagline gradually fills in as the user scrolls.
+   ============================================================ */
+
+(function initTaglineFill() {
+  var tagline = document.querySelector('.tagline-fill');
+  if (!tagline) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.gsap || !window.ScrollTrigger) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Split into characters. Prefer SplitText plugin; fall back to a manual splitter.
+  var chars;
+  if (window.SplitText) {
+    var split = new SplitText(tagline, {
+      type: 'chars',
+      charsClass: 'split-char',
+    });
+    chars = split.chars;
+  } else {
+    chars = manualSplitChars(tagline);
+  }
+
+  // Animate the --fill custom property from 0 → 1 across the chars,
+  // tied to the user's scroll position via ScrollTrigger (scrub).
+  gsap.fromTo(chars,
+    { '--fill': 0 },
+    {
+      '--fill': 1,
+      stagger: 0.04,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: tagline,
+        start: 'top 85%',
+        end: 'top 25%',
+        scrub: 1,
+      },
+    }
+  );
+
+  function manualSplitChars(el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+    var textNodes = [];
+    var node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+
+    var collected = [];
+    textNodes.forEach(function(tn) {
+      var text = tn.textContent;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < text.length; i++) {
+        var c = text[i];
+        var span = document.createElement('span');
+        span.className = 'split-char';
+        span.textContent = c === ' ' ? ' ' : c;
+        frag.appendChild(span);
+        collected.push(span);
+      }
+      tn.parentNode.replaceChild(frag, tn);
+    });
+    return collected;
+  }
+})();
+
+
+/* ============================================================
    STICKY FEATURE — sticky media swap as user scrolls info blocks
    ============================================================ */
 

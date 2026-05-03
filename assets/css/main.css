@@ -391,6 +391,63 @@ ul, ol {
 }
 
 /* ============================================================
+   TAGLINE SCROLL-FILL — muted text fills in as user scrolls
+   ============================================================ */
+
+/* Register --fill so the custom property interpolates smoothly. */
+@property --fill {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.tagline-fill {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  max-width: 520px;
+}
+
+.tagline-fill em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Each split character: linear-gradient clipped to the glyph,
+   sized 100% × 100%, with a hard color stop at calc(var(--fill) * 100%). */
+.tagline-fill .split-char,
+.tagline-fill .char {
+  display: inline-block;
+  --fill: 0;
+  background-image: linear-gradient(
+    to top,
+    #FFFFFF 0%,
+    #FFFFFF calc(var(--fill) * 100%),
+    rgba(255, 255, 255, 0.22) calc(var(--fill) * 100%),
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* Fallback for browsers that don't support background-clip: text */
+  @supports not (background-clip: text) {
+    color: rgba(255, 255, 255, 0.55);
+  }
+}
+
+/* Reduced motion: skip the effect, just show full white */
+@media (prefers-reduced-motion: reduce) {
+  .tagline-fill .split-char,
+  .tagline-fill .char {
+    color: #FFFFFF;
+    -webkit-text-fill-color: #FFFFFF;
+    background: none;
+  }
+}
+
+/* ============================================================
    HERO STATIC BACKGROUND — single sunset mountains image
    ============================================================ */
 
