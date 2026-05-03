@@ -234,44 +234,6 @@
 
 
 /* ============================================================
-   HERO PARALLAX — 3 layers move at different speeds on scroll
-   ============================================================ */
-
-(function initHeroParallax() {
-  var hero = document.querySelector('.hero--parallax');
-  if (!hero) return;
-
-  var layers = hero.querySelectorAll('.parallax-layer');
-  if (!layers.length) return;
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var ticking = false;
-
-  function update() {
-    var scrollY = window.scrollY;
-    layers.forEach(function(layer) {
-      var speed = parseFloat(layer.dataset.speed) || 0.4;
-      // Background layers move LESS than scroll → smaller speed value
-      // Foreground layers move CLOSER to scroll → larger speed value
-      var translate = scrollY * speed;
-      layer.style.transform = 'translate3d(0, ' + translate + 'px, 0)';
-    });
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  update();
-})();
-
-
-/* ============================================================
    STICKY FEATURE — sticky media swap as user scrolls info blocks
    ============================================================ */
 
