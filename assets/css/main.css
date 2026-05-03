@@ -365,18 +365,16 @@ ul, ol {
   padding-bottom: var(--sp-8);
 }
 
-/* Centered hero variant — used on the parallax/bg hero */
+/* Hero (bg variant) — left-aligned, large title, white meta */
 .hero--bg .hero__content {
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.hero--bg .hero__meta {
-  justify-content: center;
-}
-
-.hero--bg .hero__heading {
-  width: 100%;
+.hero--bg .hero__meta,
+.hero--bg .hero__meta .hero__location,
+.hero--bg .hero__meta .hero__status {
+  color: #FFFFFF;
 }
 
 .hero--bg .t-hero {
@@ -390,10 +388,6 @@ ul, ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-.hero--bg .hero__tagline {
-  text-align: left;
 }
 
 /* ============================================================
