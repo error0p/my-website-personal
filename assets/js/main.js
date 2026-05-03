@@ -234,70 +234,73 @@
 
 
 /* ============================================================
-   TAGLINE SCROLL-FILL — GSAP ScrollTrigger + SplitText
+   TAGLINE SCROLL-FILL — GSAP ScrollTrigger
    Muted hero tagline gradually fills in as the user scrolls.
+   Animates background-position on each character so the bright
+   half of an oversized linear-gradient slides up into view.
    ============================================================ */
 
-(function initTaglineFill() {
+function initTaglineFill() {
   var tagline = document.querySelector('.tagline-fill');
   if (!tagline) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (!window.gsap || !window.ScrollTrigger) return;
+
+  // Always split with the manual splitter — no plugin dependency.
+  var chars = manualSplitChars(tagline);
+
+  // If GSAP / ScrollTrigger aren't available yet, fill everything immediately.
+  if (!window.gsap || !window.ScrollTrigger) {
+    chars.forEach(function(c) { c.style.backgroundPosition = '0% 100%'; });
+    return;
+  }
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Split into characters. Prefer SplitText plugin; fall back to a manual splitter.
-  var chars;
-  if (window.SplitText) {
-    var split = new SplitText(tagline, {
-      type: 'chars',
-      charsClass: 'split-char',
-    });
-    chars = split.chars;
-  } else {
-    chars = manualSplitChars(tagline);
-  }
-
-  // Animate the --fill custom property from 0 → 1 across the chars,
-  // tied to the user's scroll position via ScrollTrigger (scrub).
   gsap.fromTo(chars,
-    { '--fill': 0 },
+    { backgroundPosition: '0% 0%' },     // muted half showing
     {
-      '--fill': 1,
-      stagger: 0.04,
+      backgroundPosition: '0% 100%',     // bright half showing
+      stagger: { each: 0.03, from: 'start' },
       ease: 'none',
       scrollTrigger: {
         trigger: tagline,
-        start: 'top 85%',
-        end: 'top 25%',
-        scrub: 1,
+        start: 'top 90%',
+        end: 'top 30%',
+        scrub: 0.6,
       },
     }
   );
+}
 
-  function manualSplitChars(el) {
-    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-    var textNodes = [];
-    var node;
-    while ((node = walker.nextNode())) textNodes.push(node);
+function manualSplitChars(el) {
+  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  var textNodes = [];
+  var node;
+  while ((node = walker.nextNode())) textNodes.push(node);
 
-    var collected = [];
-    textNodes.forEach(function(tn) {
-      var text = tn.textContent;
-      var frag = document.createDocumentFragment();
-      for (var i = 0; i < text.length; i++) {
-        var c = text[i];
-        var span = document.createElement('span');
-        span.className = 'split-char';
-        span.textContent = c === ' ' ? ' ' : c;
-        frag.appendChild(span);
-        collected.push(span);
-      }
-      tn.parentNode.replaceChild(frag, tn);
-    });
-    return collected;
-  }
-})();
+  var collected = [];
+  textNodes.forEach(function(tn) {
+    var text = tn.textContent;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'split-char';
+      span.textContent = text[i];
+      frag.appendChild(span);
+      collected.push(span);
+    }
+    tn.parentNode.replaceChild(frag, tn);
+  });
+  return collected;
+}
+
+// Run after GSAP scripts have loaded
+if (document.readyState === 'complete') {
+  initTaglineFill();
+} else {
+  window.addEventListener('load', initTaglineFill);
+}
+
 
 
 /* ============================================================

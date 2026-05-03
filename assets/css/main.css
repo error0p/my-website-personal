@@ -392,21 +392,16 @@ ul, ol {
 
 /* ============================================================
    TAGLINE SCROLL-FILL — muted text fills in as user scrolls
+   Uses an oversized linear-gradient that's slid up to reveal the
+   bright half of the gradient (the "clever sizing" trick).
    ============================================================ */
-
-/* Register --fill so the custom property interpolates smoothly. */
-@property --fill {
-  syntax: '<number>';
-  inherits: false;
-  initial-value: 0;
-}
 
 .tagline-fill {
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.005em;
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .tagline-fill em {
@@ -414,33 +409,30 @@ ul, ol {
   font-weight: 500;
 }
 
-/* Each split character: linear-gradient clipped to the glyph,
-   sized 100% × 100%, with a hard color stop at calc(var(--fill) * 100%). */
-.tagline-fill .split-char,
-.tagline-fill .char {
+/* Per-character span, painted by JS-split */
+.tagline-fill .split-char {
   display: inline-block;
-  --fill: 0;
+  /* Two solid color stops with the boundary in the middle of a 100%×200% gradient. */
   background-image: linear-gradient(
     to top,
     #FFFFFF 0%,
-    #FFFFFF calc(var(--fill) * 100%),
-    rgba(255, 255, 255, 0.22) calc(var(--fill) * 100%),
+    #FFFFFF 50%,
+    rgba(255, 255, 255, 0.22) 50%,
     rgba(255, 255, 255, 0.22) 100%
   );
+  background-size: 100% 200%;
+  background-position: 0% 0%;            /* start: showing the muted half */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  /* Fallback for browsers that don't support background-clip: text */
-  @supports not (background-clip: text) {
-    color: rgba(255, 255, 255, 0.55);
-  }
+  color: rgba(255, 255, 255, 0.22);      /* fallback if bg-clip text unsupported */
+  white-space: pre;                      /* preserve spaces */
+  will-change: background-position;
 }
 
-/* Reduced motion: skip the effect, just show full white */
+/* Reduced motion: just show full white, no split effect needed */
 @media (prefers-reduced-motion: reduce) {
-  .tagline-fill .split-char,
-  .tagline-fill .char {
+  .tagline-fill .split-char {
     color: #FFFFFF;
     -webkit-text-fill-color: #FFFFFF;
     background: none;
