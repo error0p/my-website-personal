@@ -70,10 +70,10 @@
 
 
   <!-- =========================================================
-       FEATURED — stack cards on scroll
+       FEATURED — Sticky Feature (CodyHouse pattern)
   ========================================================== -->
-  <section class="featured-stack container" id="featured">
-    <div class="featured-stack__head" data-animate>
+  <section class="sticky-feature container" id="featured">
+    <div class="sticky-feature__head" data-animate>
       <p class="t-label">Selected Work</p>
       <a href="work.html" class="link-arrow">
         View all projects
@@ -83,35 +83,17 @@
       </a>
     </div>
 
-    <ul class="stack-cards js-stack-cards">
+    <div class="sticky-feature__grid">
 
-      <!-- Card 1: Skyverrra Ventures -->
-      <li class="stack-cards__item js-stack-cards__item">
-        <a href="case-studies/skyverrra.html" class="glass-card">
-          <div class="glass-card__media">
-            <img src="assets/img/skyverrra%20moodboard.jpg" alt="Skyverrra moodboard" class="glass-card__img">
-          </div>
-          <div class="glass-card__body">
-            <div class="glass-card__title-row">
-              <h3 class="glass-card__title">Skyverrra Ventures</h3>
-              <span class="glass-card__date">2024</span>
-            </div>
-            <p class="glass-card__quote">
-              "A brand built for ambition — momentum and altitude captured in a single mark."
-            </p>
-            <div class="glass-card__meta">
-              <span><b>Type:</b> Brand Identity · Logo System</span>
-              <span><b>Role:</b> Brand Designer · Freelance</span>
-            </div>
-            <span class="glass-card__expand">View Case Study →</span>
-          </div>
-        </a>
-      </li>
+      <!-- STICKY MEDIA (left column) -->
+      <div class="sticky-feature__media">
+        <div class="sticky-feature__media-frame">
 
-      <!-- Card 2: Meet The Team -->
-      <li class="stack-cards__item js-stack-cards__item">
-        <a href="case-studies/meet-the-team.html" class="glass-card">
-          <div class="glass-card__media">
+          <div class="sticky-feature__media-item is-active" data-feature="0">
+            <img src="assets/img/skyverrra%20moodboard.jpg" alt="Skyverrra moodboard" class="sticky-feature__img">
+          </div>
+
+          <div class="sticky-feature__media-item" data-feature="1">
             <div class="img-scroll-strip" aria-hidden="true">
               <img src="assets/img/meet the team 1.png" alt="">
               <img src="assets/img/meet the team 2.png" alt="">
@@ -135,45 +117,65 @@
               <img src="assets/img/meet the team 10.png" alt="">
             </div>
           </div>
-          <div class="glass-card__body">
-            <div class="glass-card__title-row">
-              <h3 class="glass-card__title">Meet The Team</h3>
-              <span class="glass-card__date">2025 — Present</span>
-            </div>
-            <p class="glass-card__quote">
-              "Putting faces to a 5,000-person organization — one consistent visual story at a time."
-            </p>
-            <div class="glass-card__meta">
-              <span><b>Type:</b> Employer Branding · Campaign</span>
-              <span><b>Scope:</b> 10+ posts, ongoing</span>
-            </div>
-            <span class="glass-card__expand">View Case Study →</span>
-          </div>
-        </a>
-      </li>
 
-      <!-- Card 3: World Health Day -->
-      <li class="stack-cards__item js-stack-cards__item">
-        <a href="work.html" class="glass-card">
-          <div class="glass-card__media glass-card__media--healthday"></div>
-          <div class="glass-card__body">
-            <div class="glass-card__title-row">
-              <h3 class="glass-card__title">World Health Day</h3>
-              <span class="glass-card__date">2026</span>
-            </div>
-            <p class="glass-card__quote">
-              "Health awareness through bold typography, gradient, and visual storytelling."
-            </p>
-            <div class="glass-card__meta">
-              <span><b>Type:</b> Campaign · Awareness</span>
-              <span><b>Client:</b> Patil Group</span>
-            </div>
-            <span class="glass-card__expand">View Case Study →</span>
+          <div class="sticky-feature__media-item" data-feature="2">
+            <div class="sticky-feature__media-fill sticky-feature__media-fill--healthday"></div>
           </div>
-        </a>
-      </li>
 
-    </ul>
+        </div>
+      </div>
+
+      <!-- SCROLLING INFO BLOCKS (right column) -->
+      <div class="sticky-feature__content">
+
+        <article class="sticky-feature__item js-sticky-feature__item" data-feature="0">
+          <span class="sticky-feature__num">01</span>
+          <p class="sticky-feature__pill">Brand Identity · 2024</p>
+          <h3 class="sticky-feature__title">Skyverrra Ventures</h3>
+          <p class="sticky-feature__desc">
+            A complete brand identity system from logo through guidelines — built to make an early-stage ventures brand look like it had already arrived. Restraint as a confidence signal.
+          </p>
+          <ul class="sticky-feature__meta">
+            <li><b>Role:</b> Brand Designer · Freelance</li>
+            <li><b>Scope:</b> Logo · Color · Typography · Guidelines</li>
+            <li><b>Recognition:</b> 44 appreciations on Behance</li>
+          </ul>
+          <a href="case-studies/skyverrra.html" class="sticky-feature__cta">View Case Study →</a>
+        </article>
+
+        <article class="sticky-feature__item js-sticky-feature__item" data-feature="1">
+          <span class="sticky-feature__num">02</span>
+          <p class="sticky-feature__pill">Employer Branding · 2025 — Present</p>
+          <h3 class="sticky-feature__title">Meet The Team</h3>
+          <p class="sticky-feature__desc">
+            An ongoing series for Patil Group that puts faces to a 5,000-person infrastructure conglomerate. Bold typography over real photography, built as a repeatable template for weekly publishing.
+          </p>
+          <ul class="sticky-feature__meta">
+            <li><b>Client:</b> Patil Group · Hyderabad</li>
+            <li><b>Scope:</b> 10+ posts, multiple departments</li>
+            <li><b>Channels:</b> LinkedIn · Instagram</li>
+          </ul>
+          <a href="case-studies/meet-the-team.html" class="sticky-feature__cta">View Case Study →</a>
+        </article>
+
+        <article class="sticky-feature__item js-sticky-feature__item" data-feature="2">
+          <span class="sticky-feature__num">03</span>
+          <p class="sticky-feature__pill">Campaign · 2026</p>
+          <h3 class="sticky-feature__title">World Health Day</h3>
+          <p class="sticky-feature__desc">
+            A health awareness campaign built on bold typography, gradient blocks, and a clear visual hierarchy — designed to land across print and digital with a single voice.
+          </p>
+          <ul class="sticky-feature__meta">
+            <li><b>Client:</b> Patil Group</li>
+            <li><b>Scope:</b> Multi-format campaign · Print &amp; digital</li>
+            <li><b>Year:</b> 2026</li>
+          </ul>
+          <a href="work.html" class="sticky-feature__cta">View Case Study →</a>
+        </article>
+
+      </div>
+
+    </div>
   </section>
 
 

@@ -234,80 +234,60 @@
 
 
 /* ============================================================
-   STACK CARDS — sticky cards that scale-stack on scroll
+   STICKY FEATURE — sticky media swap as user scrolls info blocks
    ============================================================ */
 
-var StackCards = function(element) {
-  this.element = element;
-  this.items = this.element.getElementsByClassName('js-stack-cards__item');
-  this.scrollingListener = false;
-  this.scrolling = false;
-  this.gap = 0;
-  this.stickyTop = 0;
-  initStackCardsEffect(this);
-};
+(function initStickyFeature() {
+  var root = document.querySelector('.sticky-feature');
+  if (!root) return;
 
-function initStackCardsEffect(element) {
-  measureStackCards(element);
-  animateStackCards(element);
+  var items      = root.querySelectorAll('.js-sticky-feature__item');
+  var mediaItems = root.querySelectorAll('.sticky-feature__media-item');
+  if (!items.length || !mediaItems.length) return;
 
-  window.addEventListener('resize', function() {
-    measureStackCards(element);
-    animateStackCards(element);
-  });
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show all items full opacity, default media stays
+    items.forEach(function(item) { item.classList.add('is-active'); });
+    return;
+  }
 
-  window.addEventListener('scroll', function() {
-    if (element.scrollingListener) return;
-    element.scrollingListener = true;
-    window.requestAnimationFrame(function() {
-      animateStackCards(element);
-      element.scrollingListener = false;
+  function setActive(featureId) {
+    mediaItems.forEach(function(m) {
+      m.classList.toggle('is-active', m.dataset.feature === featureId);
     });
+    items.forEach(function(it) {
+      it.classList.toggle('is-active', it.dataset.feature === featureId);
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    // Find the entry with the highest intersection ratio that's currently intersecting
+    var best = null;
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+    });
+
+    if (best) {
+      setActive(best.target.dataset.feature);
+    } else {
+      // None in the trigger band right now — pick the closest item to viewport center
+      var viewportCenter = window.innerHeight / 2;
+      var closest = null;
+      var closestDist = Infinity;
+      items.forEach(function(it) {
+        var rect = it.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        var dist = Math.abs(center - viewportCenter);
+        if (dist < closestDist) { closestDist = dist; closest = it; }
+      });
+      if (closest) setActive(closest.dataset.feature);
+    }
+  }, {
+    // Trigger band in the middle 40% of the viewport
+    rootMargin: '-30% 0px -30% 0px',
+    threshold: [0, 0.25, 0.5, 0.75, 1],
   });
-}
 
-function measureStackCards(stack) {
-  if (!stack.items.length) return;
-  var listStyles = getComputedStyle(stack.element);
-  stack.gap = parseInt(listStyles.rowGap) || parseInt(listStyles.gridRowGap) || 0;
-  var firstStyle = getComputedStyle(stack.items[0]);
-  stack.stickyTop = parseInt(firstStyle.top) || 0;
-}
-
-function animateStackCards(stack) {
-  // For each card, scale it down based on cumulative coverage from cards stacking on top of it.
-  for (var i = 0; i < stack.items.length; i++) {
-    var thisRect = stack.items[i].getBoundingClientRect();
-    var reduction = 0;
-
-    // Look at all later cards — each one that's covering this card adds scale-down
-    for (var j = i + 1; j < stack.items.length; j++) {
-      var nextRect = stack.items[j].getBoundingClientRect();
-      // Coverage from below: how far has next card's top crossed below the top of this card
-      var coverage = (stack.stickyTop + thisRect.height + stack.gap) - nextRect.top;
-      if (coverage > 0) {
-        var ratio = Math.min(1, coverage / (thisRect.height + stack.gap));
-        reduction += ratio * 0.04;
-      }
-    }
-
-    var scale = Math.max(0.84, 1 - reduction);
-    stack.items[i].style.transform = 'scale(' + scale + ')';
-    // Slight opacity fade for deeply-buried cards
-    stack.items[i].style.opacity = Math.max(0.65, 1 - reduction * 1.2).toFixed(3);
-  }
-}
-
-(function initAllStackCards() {
-  var stackCards = document.getElementsByClassName('js-stack-cards');
-  var intersectionObserverSupported = ('IntersectionObserver' in window
-    && 'IntersectionObserverEntry' in window
-    && 'intersectionRatio' in window.IntersectionObserverEntry.prototype);
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (stackCards.length > 0 && intersectionObserverSupported && !reducedMotion) {
-    for (var i = 0; i < stackCards.length; i++) {
-      new StackCards(stackCards[i]);
-    }
-  }
+  items.forEach(function(item) { observer.observe(item); });
 })();
