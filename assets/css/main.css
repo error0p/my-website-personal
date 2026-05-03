@@ -361,7 +361,7 @@ ul, ol {
   flex-direction: column;
   justify-content: flex-end;
   padding-top: var(--nav-h);
-  padding-bottom: var(--sp-20);
+  padding-bottom: var(--sp-8);
 }
 
 /* ============================================================
@@ -530,6 +530,12 @@ ul, ol {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding-block: var(--sp-4);
+}
+
+/* Tighter variant — sits closer to the section above (used between hero and project section) */
+.marquee--tight {
+  margin-top: 0;
+  padding-block: var(--sp-3);
 }
 
 .marquee__track {
