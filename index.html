@@ -40,30 +40,45 @@
 
 
   <!-- =========================================================
-       HERO
+       HERO — parallax (3 layered images)
   ========================================================== -->
-  <section class="hero container">
-    <div class="hero__meta" data-animate data-delay="1">
-      <div class="hero__status">
-        <span class="hero__status-dot"></span>
-        Open to opportunities
+  <section class="hero hero--parallax" id="hero">
+    <!-- Layer 3 = farthest (back), Layer 2 = middle, Layer 1 = closest (front) -->
+    <div class="parallax-layer parallax-layer--3" data-speed="0.20" aria-hidden="true">
+      <img src="assets/img/layer3.png" alt="">
+    </div>
+    <div class="parallax-layer parallax-layer--2" data-speed="0.45" aria-hidden="true">
+      <img src="assets/img/layer2.png" alt="">
+    </div>
+    <div class="parallax-layer parallax-layer--1" data-speed="0.75" aria-hidden="true">
+      <img src="assets/img/layer1.png" alt="">
+    </div>
+
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content container">
+      <div class="hero__meta" data-animate data-delay="1">
+        <div class="hero__status">
+          <span class="hero__status-dot"></span>
+          Open to opportunities
+        </div>
+        <span class="hero__location">·&nbsp;&nbsp;Hyderabad / Bangalore</span>
       </div>
-      <span class="hero__location">·&nbsp;&nbsp;Hyderabad / Bangalore</span>
-    </div>
 
-    <div class="hero__heading" data-animate data-delay="2">
-      <h1 class="t-hero">Satyam<br>Pariyar</h1>
-    </div>
+      <div class="hero__heading" data-animate data-delay="2">
+        <h1 class="t-hero">Satyam<br>Pariyar</h1>
+      </div>
 
-    <div class="hero__bottom">
-      <p class="hero__tagline" data-animate data-delay="3">
-        Brand &amp; Visual Designer.<br>
-        <em>Brands built to last.</em><br>
-        Campaigns built to land.
-      </p>
-      <div class="hero__scroll" data-animate="fade" data-delay="4">
-        <span>Scroll</span>
-        <div class="hero__scroll-line"></div>
+      <div class="hero__bottom">
+        <p class="hero__tagline" data-animate data-delay="3">
+          Brand &amp; Visual Designer.<br>
+          <em>Brands built to last.</em><br>
+          Campaigns built to land.
+        </p>
+        <div class="hero__scroll" data-animate="fade" data-delay="4">
+          <span>Scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
       </div>
     </div>
   </section>
