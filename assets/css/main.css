@@ -456,7 +456,8 @@ ul, ol {
   z-index: 0;
 }
 
-.hero__bg img {
+.hero__bg img,
+.hero__bg .hero__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
