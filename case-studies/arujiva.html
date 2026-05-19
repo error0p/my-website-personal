@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arujiva — Brand Identity · Satyam Pariyar</title>
+  <meta name="description" content="A complete brand identity system for Arujiva — logo, color, typography, and a 32-page brand guide.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230D0D0D'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%23F5F4F0'>SP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <style>
+    .cs-hero__img-inner.cs-img--arujiva {
+      background-image: url('../assets/img/arujiva-01.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .arujiva-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-block: var(--sp-12);
+    }
+    .arujiva-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      background: var(--bg-card);
+    }
+    @media (max-width: 640px) {
+      .arujiva-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Satyam Pariyar</a>
+      <div class="nav__links">
+        <a href="../work.html" class="nav__link is-active">Work</a>
+        <a href="../about.html" class="nav__link">About</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="nav__cta">Say hello →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="cs-hero">
+    <div class="cs-hero__img">
+      <div class="cs-hero__img-inner cs-img--arujiva" id="cs-parallax"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="cs-intro container">
+    <div class="cs-intro__inner">
+      <div>
+        <p class="t-label" style="margin-bottom: var(--sp-5)" data-animate>Brand Identity · 2024</p>
+        <h1 class="cs-intro__heading" data-animate data-delay="1">Arujiva</h1>
+        <p class="cs-intro__sub" data-animate data-delay="2">
+          A complete brand identity system — logo, colour, typography, and a 32-page brand guide built so a non-design team can apply the brand consistently from social to print.
+        </p>
+      </div>
+
+      <aside class="cs-meta" data-animate data-delay="3">
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Client</p>
+          <p class="cs-meta__value">Arujiva (Freelance)</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Role</p>
+          <p class="cs-meta__value">Brand Designer</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Deliverables</p>
+          <p class="cs-meta__value">Logo · Color · Typography · 32-page Brand Guide</p>
+        </div>
+        <div class="cs-meta__item">
+          <p class="cs-meta__label">Year</p>
+          <p class="cs-meta__value">2024</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 1 — THE BRIEF -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>The Brief</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A brand that earns trust before it speaks.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Arujiva needed a brand identity built from scratch — no logo, no colours, no guidelines existed. The brief was open: position the brand as credible, modern, and distinct in a category where most competitors use the same visual language.
+        </p>
+        <p>
+          The core challenge was strategic, not aesthetic: how do you create something that feels confident and established without looking like it's trying too hard? The system had to work across digital, print, and social — all from a single coherent base.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND GUIDE — PAGES 01 - 16 -->
+  <div class="container" data-animate>
+    <p class="cs-section__label" style="margin-bottom: var(--sp-6)">The Brand Guide — Foundations</p>
+    <div class="arujiva-gallery">
+      <img src="../assets/img/arujiva-02.png" alt="Arujiva brand guide page 2" loading="lazy">
+      <img src="../assets/img/arujiva-03.png" alt="Arujiva brand guide page 3" loading="lazy">
+      <img src="../assets/img/arujiva-04.png" alt="Arujiva brand guide page 4" loading="lazy">
+      <img src="../assets/img/arujiva-05.png" alt="Arujiva brand guide page 5" loading="lazy">
+      <img src="../assets/img/arujiva-06.png" alt="Arujiva brand guide page 6" loading="lazy">
+      <img src="../assets/img/arujiva-07.png" alt="Arujiva brand guide page 7" loading="lazy">
+      <img src="../assets/img/arujiva-08.png" alt="Arujiva brand guide page 8" loading="lazy">
+      <img src="../assets/img/arujiva-09.png" alt="Arujiva brand guide page 9" loading="lazy">
+      <img src="../assets/img/arujiva-10.png" alt="Arujiva brand guide page 10" loading="lazy">
+      <img src="../assets/img/arujiva-11.png" alt="Arujiva brand guide page 11" loading="lazy">
+      <img src="../assets/img/arujiva-12.png" alt="Arujiva brand guide page 12" loading="lazy">
+      <img src="../assets/img/arujiva-13.png" alt="Arujiva brand guide page 13" loading="lazy">
+      <img src="../assets/img/arujiva-14.png" alt="Arujiva brand guide page 14" loading="lazy">
+      <img src="../assets/img/arujiva-15.png" alt="Arujiva brand guide page 15" loading="lazy">
+      <img src="../assets/img/arujiva-16.png" alt="Arujiva brand guide page 16" loading="lazy">
+      <img src="../assets/img/arujiva-17.png" alt="Arujiva brand guide page 17" loading="lazy">
+    </div>
+  </div>
+
+  <!-- SECTION 2 — APPROACH -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Approach</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        System-first, mark-second.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          Most brand projects start with the logo. This one started with the system. Before drawing a single mark, I mapped out how the brand would need to behave — on a business card, on a social post, on a document header, on a building sign — and that exercise defined the constraints.
+        </p>
+        <p>
+          The final system was documented in a 32-page brand guideline PDF covering: logo usage rules, clear-space requirements, colour values (HEX, RGB, CMYK), type scale, and a set of do / don't examples for the most common misapplication scenarios.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND GUIDE — PAGES 17 - 32 -->
+  <div class="container" data-animate>
+    <p class="cs-section__label" style="margin-bottom: var(--sp-6)">Applications &amp; Usage</p>
+    <div class="arujiva-gallery">
+      <img src="../assets/img/arujiva-18.png" alt="Arujiva brand guide page 18" loading="lazy">
+      <img src="../assets/img/arujiva-19.png" alt="Arujiva brand guide page 19" loading="lazy">
+      <img src="../assets/img/arujiva-20.png" alt="Arujiva brand guide page 20" loading="lazy">
+      <img src="../assets/img/arujiva-21.png" alt="Arujiva brand guide page 21" loading="lazy">
+      <img src="../assets/img/arujiva-22.png" alt="Arujiva brand guide page 22" loading="lazy">
+      <img src="../assets/img/arujiva-23.png" alt="Arujiva brand guide page 23" loading="lazy">
+      <img src="../assets/img/arujiva-24.png" alt="Arujiva brand guide page 24" loading="lazy">
+      <img src="../assets/img/arujiva-25.png" alt="Arujiva brand guide page 25" loading="lazy">
+      <img src="../assets/img/arujiva-26.png" alt="Arujiva brand guide page 26" loading="lazy">
+      <img src="../assets/img/arujiva-27.png" alt="Arujiva brand guide page 27" loading="lazy">
+      <img src="../assets/img/arujiva-28.png" alt="Arujiva brand guide page 28" loading="lazy">
+      <img src="../assets/img/arujiva-29.png" alt="Arujiva brand guide page 29" loading="lazy">
+      <img src="../assets/img/arujiva-30.png" alt="Arujiva brand guide page 30" loading="lazy">
+      <img src="../assets/img/arujiva-31.png" alt="Arujiva brand guide page 31" loading="lazy">
+      <img src="../assets/img/arujiva-32.png" alt="Arujiva brand guide page 32" loading="lazy">
+    </div>
+  </div>
+
+  <!-- OUTCOME -->
+  <div class="cs-section container">
+    <p class="cs-section__label" data-animate>Outcome</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items:start">
+      <h2 class="cs-section__heading" data-animate data-delay="1">
+        A complete system, ready to deploy across every channel.
+      </h2>
+      <div class="cs-section__body" data-animate data-delay="2">
+        <p>
+          The final deliverable: primary and secondary logo lockups, a standalone mark for small-format use, the full colour system with print and digital values, a Lato-based type scale, and a 32-page brand guidelines document.
+        </p>
+        <p>
+          The client used the guidelines directly to brief their social media manager and web developer — both with no prior design experience. The system's clarity meant the brand stayed consistent from day one without ongoing creative oversight.
+        </p>
+      </div>
+    </div>
+
+    <div class="outcome-grid" style="margin-top: var(--sp-12)">
+      <div data-animate data-delay="1">
+        <p class="outcome-stat__number">32pg</p>
+        <p class="outcome-stat__label">Brand guidelines document</p>
+      </div>
+      <div data-animate data-delay="2">
+        <p class="outcome-stat__number">4</p>
+        <p class="outcome-stat__label">Deliverable categories: logo, color, type, guidelines</p>
+      </div>
+      <div data-animate data-delay="3">
+        <p class="outcome-stat__number">100%</p>
+        <p class="outcome-stat__label">Freelance — brief to full system delivery</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- NEXT PROJECT -->
+  <div class="cs-nav container">
+    <div class="cs-nav__inner">
+      <a href="../work.html" class="cs-nav__link">
+        <span class="cs-nav__dir">← All Work</span>
+        <span class="cs-nav__title">Back to portfolio</span>
+      </a>
+      <a href="meet-the-team.html" class="cs-nav__link cs-nav__link--next">
+        <span class="cs-nav__dir">Next Project →</span>
+        <span class="cs-nav__title">Meet The Team — Patil Group</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    <div class="footer__inner">
+      <span class="footer__left">© 2026 Satyam Pariyar</span>
+      <nav class="footer__links">
+        <a href="https://linkedin.com/in/satyam-pariyar-77336b21a" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:satyampariyar275@gmail.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

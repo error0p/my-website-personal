@@ -767,6 +767,13 @@ ul, ol {
   display: block;
 }
 
+/* Contained variant — for logo thumbnails that shouldn't be cropped */
+.sticky-feature__img--contain {
+  object-fit: contain;
+  background: #05061a;
+  padding: 8%;
+}
+
 .sticky-feature__media-item .img-scroll-strip {
   height: 100%;
 }
@@ -1118,15 +1125,15 @@ ul, ol {
 .card__img--helio       { background: linear-gradient(135deg, #221508 0%, #7a4a10 55%, #3d2508 100%); }
 
 /* Real project gradients */
-.card__img--arujiva     { background: linear-gradient(145deg, #062428 0%, #0a4a52 45%, #0d6570 75%, #0a3d42 100%); }
+.card__img--arujiva     { background-image: url('../img/arujiva-12.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #ffffff; }
 .card__img--skyverrra   {
-  background-image: url('../img/skyverrra%20moodboard.jpg');
+  background-image: url('../img/skyverrra-logo.jpg');
   background-size: cover;
   background-position: center;
 }
 .card__img--himalayan   { background: linear-gradient(145deg, #071a08 0%, #0e3a10 45%, #1a5c1e 70%, #0a2e0b 100%); }
 .card__img--meettheteam { background: #0d0305; overflow: hidden; }
-.card__img--healthday   { background: linear-gradient(145deg, #051a3d 0%, #0a3374 45%, #0c6e6e 80%, #063535 100%); }
+.card__img--healthday   { background-image: url('../img/whd-01.png'); background-size: cover; background-position: center; background-color: #051a3d; }
 .card__img--precast     { background: linear-gradient(145deg, #111210 0%, #252723 45%, #1e201c 70%, #0e0f0d 100%); }
 .card__img--digital     { background: linear-gradient(145deg, #1f1200 0%, #4a2d00 40%, #6b4200 70%, #2e1900 100%); }
 
