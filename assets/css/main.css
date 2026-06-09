@@ -2019,3 +2019,65 @@ ul, ol {
   background: var(--border);
   border-radius: 3px;
 }
+
+/* ============================================================
+   CLIENTS SECTION
+   ============================================================ */
+
+.clients-section {
+  padding-block: var(--sp-20);
+  border-top: 1px solid var(--border);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-12);
+}
+
+.client-logo-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-6);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base), filter var(--dur-base), opacity var(--dur-base);
+  filter: grayscale(1) opacity(0.5);
+}
+
+.client-logo-card--white {
+  background: #FFFFFF;
+}
+
+.client-logo-card--black {
+  background: #000000;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-4px);
+  filter: grayscale(0) opacity(1);
+  border-color: var(--text-secondary);
+}
+
+.client-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+  }
+}
+
+@media (max-width: 640px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
